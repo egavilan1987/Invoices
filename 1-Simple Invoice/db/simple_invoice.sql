@@ -59,3 +59,8 @@ CREATE TABLE invoices(
 
 				PRIMARY KEY(id_invoice)
 					);
+ 
+
+
+
+ INSERT INTO `simple_invoice`.`invoices` (`customer_name`, `customer_telephone`, `description`, `subtotal`, `tax`, `amount`, `percent_tax`, `created_date`) VALUES ('Jeff Bezos', '(849) 552-5444', 'Because he has to pay and thats it.', '4000', '1000', '5000', '20', '2018-08-19 19:42:45');
