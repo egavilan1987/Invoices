@@ -46,6 +46,50 @@ https://codecanyon.net/item/human-resource-payroll-management-system/19534191?s_
 https://codecanyon.net/item/employee-management-system-hrm/21566182?s_rank=1
 https://codecanyon.net/item/employee-clock-attendance-v-10/11846747?s_rank=6
 https://codecanyon.net/item/employee-management-software-payroll-system-attendance-all-report-full-hrm/21476244?s_rank=13
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE DATABASE employee;
+
+USE employee;
+
+CREATE TABLE employees(
+				id_employee INT AUTO_INCREMENT,
+
+				fullname VARCHAR(50),
+				email VARCHAR(50),
+				current_address VARCHAR(80),
+				date_birth DATE,
+				birth_place VARCHAR(80),
+				birth_address VARCHAR(80),
+				telephone VARCHAR(20),
+				gender VARCHAR(10),
+				image VARCHAR(20),
+
+				current_address2 VARCHAR(80),
+				telephone VARCHAR(20),
+				cellphone VARCHAR(20),
+
+				contact_fullname VARCHAR(50),
+				contact_address VARCHAR(80),		
+				contact_telephone VARCHAR(20),
+				contact_email VARCHAR(50),
+				contact_relation VARCHAR(80),
+
+				contact_profession VARCHAR(50),
+				contact_experience VARCHAR(50),
+				contact_school VARCHAR(50),
+				contact_department VARCHAR(50),
+				contact_hired_day DATE(50),
+				file VARCHAR(20),
+
+				created_date DATETIME,
+				updated_date DATETIME,
+
+					);
+
+
+
 
 ----------------------------------------------------------------------------------------------------------------------------------
 https://bootsnipp.com/snippets/BE7rQ
