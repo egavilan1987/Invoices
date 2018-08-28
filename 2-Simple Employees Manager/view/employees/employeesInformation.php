@@ -2,7 +2,7 @@
 require_once ('../../vendor/fpdf/fpdf.php');
 
 $connect=mysqli_connect('localhost','root','');
-mysqli_select_db($connect,'simple_invoice');
+mysqli_select_db($connect,'simple_employees');
 
 
 class PDF extends FPDF {
@@ -24,7 +24,7 @@ class PDF extends FPDF {
 		$this->Image('../../files/EGD.jpg',10,15,25);
 		$this->SetY(12);
 		$this->SetX(43);
-		$this->Cell(0,20,'ALL INVOICES',10,1,'');
+		$this->Cell(0,20,'All Employees',10,1,'');
 
 		$this->Ln(8);
 		
@@ -33,11 +33,11 @@ class PDF extends FPDF {
 		$this->SetFillColor(95,166,252);
 		$this->SetDrawColor(0,0,0);
 		$this->Cell(20,5,'No.',1,0,'',true);
-		$this->Cell(35,5,'Customer Name',1,0,'',true);
-		$this->Cell(30,5,'Telephone',1,0,'',true);
-		$this->Cell(30,5,'Sub-total',1,0,'',true);
-		$this->Cell(30,5,'Tax',1,0,'',true);
-		$this->Cell(45,5,'Total',1,1,'',true);
+		$this->Cell(40,5,'Full Name',1,0,'',true);
+		$this->Cell(40,5,'Department',1,0,'',true);
+		$this->Cell(30,5,'Gender',1,0,'',true);
+		$this->Cell(35,5,'Nationality',1,0,'',true);
+		$this->Cell(25,5,'Status',1,1,'',true);
 
 	}
 	function Footer(){
@@ -74,27 +74,18 @@ $Total=0;
 
 
 
-$query=mysqli_query($connect,"SELECT * FROM invoices");
+$query=mysqli_query($connect,"SELECT * FROM employees");
 while($data=mysqli_fetch_array($query)){
-	$pdf->Cell(20,5,$data['id_invoice'],1,0);
-	$pdf->cell(35,5,$data['customer_name'],1,0);
-	$pdf->Cell(30,5,$data['customer_telephone'],1,0);
-	$pdf->Cell(30,5,$data['subtotal'],1,0);
-	$pdf->Cell(30,5,$data['tax'],1,0);
-	$pdf->Cell(45,5,$data['amount'],1,1);
-	$totalSubtotal=$totalSubtotal+$data['subtotal'];
-	$totalTax=$totalTax+$data['tax'];
-	$Total=$Total+$data['amount'];
-	
+	$pdf->Cell(20,5,$data['id_employee'],1,0);
+	$pdf->cell(40,5,$data['fullname'],1,0);
+	$pdf->Cell(40,5,$data['department'],1,0);
+	$pdf->Cell(30,5,$data['gender'],1,0);
+	$pdf->Cell(35,5,$data['nationality'],1,0);
+	$pdf->Cell(25,5,$data['employee_status'],1,1);
 }
 
 //invoice contents
 $pdf->SetFont('Arial','B',12);
 
-$pdf->Cell(85	,5,'Total',1,0);
-$pdf->Cell(30	,5,$totalSubtotal,1,0);
-$pdf->Cell(30	,5,$totalTax,1,0);
-$pdf->Cell(45	,5, $Total,1,1);//end of line
-
-$pdf->Output('I','Invoices Information.pdf');
+$pdf->Output('I','Employees Information.pdf');
 ?>

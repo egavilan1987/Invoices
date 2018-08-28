@@ -46,15 +46,21 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link" href="invoices.php">
+          <a class="nav-link" href="employees.php">
             <i class="fa fa-table"></i>
-            <span class="nav-link-text">Invoices</span>
+            <span class="nav-link-text">Employees</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link" href="addInvoice.php">
             <i class="fa fa-plus"></i>
-            <span class="nav-link-text">Add New Invoice</span>
+            <span class="nav-link-text">Add New Employee</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link" href="departments.php">
+            <i class="fa fa-building-o"></i>
+            <span class="nav-link-text">Departments</span>
           </a>
         </li>
       </ul>

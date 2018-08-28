@@ -88,7 +88,34 @@ CREATE TABLE employees(
 
 					);
 
-
+----------------------------------------------------------------------------------------------------------------------------------
+                id_employee,
+                fullname,
+                email,
+                local_address,
+                date_birth,
+                birth_place,
+                birth_address,
+                gender,
+                nationality,
+                marital_status,
+                image,
+                permanent_address,
+                telephone,
+                cellphone,
+                contact_fullname,
+                contact_address,        
+                contact_telephone,
+                contact_email,
+                contact_relation,
+                department,
+                salary,
+                estatus,
+                comments,
+                hired_day,
+                resume_path,
+                created_date,
+                updated_date,
 
 
 ----------------------------------------------------------------------------------------------------------------------------------

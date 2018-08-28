@@ -4,7 +4,7 @@
 		private $server="localhost";
 		private $user="root";
 		private $password="";
-		private $db="simple_invoice";
+		private $db="simple_employees";
 		public function connection(){
 			$connection=mysqli_connect($this->server,
 									 $this->user,

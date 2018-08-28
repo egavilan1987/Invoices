@@ -1,9 +1,9 @@
   <?php require_once "menu.php"; 
-    $id = $_GET['idInvoice'];
+    $id = $_GET['idEmployee'];
   ?>
 <html>
  <head>
-  <title>Create New Invoice</title>
+  <title>Create New Employee</title>
  </head>
  <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <div class="content-wrapper">
@@ -14,23 +14,23 @@
           <a href="init.php">Dashboard</a>
         </li>
         <li class="breadcrumb-item">
-          <a href="invoices.php">Invoices</a>
+          <a href="employees.php">Employees</a>
         </li>
-        <li class="breadcrumb-item active">Edit Invoice</li>
+        <li class="breadcrumb-item active">Edit Employee</li>
       </ol>
-      <a href="invoices.php" class="btn btn-success" role="button" aria-pressed="true"><span class="fa fa-table"></span> Invoices</a>
+      <a href="employees.php" class="btn btn-success" role="button" aria-pressed="true"><span class="fa fa-table"></span> Employees</a>
       <br>
       <br>
       <!-- Example DataUsers Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-pencil"></i> Edit Invoice</div>
+          <i class="fa fa-pencil"></i> Edit Employees</div>
         <div class="card-body">
           </tr>
           <div class="table-responsive">
             <div class="container">
               <form id="frmSimpleInvoice">
-                <h2>Edit Simple Invoice</h2>
+                <h2>Edit Simple Employees</h2>
                 <hr class="colorgraph">
                 
                 <div id="alert_error_message" class="alert alert-danger collapse">
