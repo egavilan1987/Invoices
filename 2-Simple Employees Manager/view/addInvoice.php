@@ -16,18 +16,12 @@
         </li>
         <li class="breadcrumb-item active">New Employee</li>
       </ol>
-      <a href="employees.php" class="btn btn-success" role="button" aria-pressed="true"><span class="fa fa-table"></span> Employess</a>
-      <br>
-      <br>
       <!-- Example DataUsers Card-->
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-plus"></i> Add New Employee</div>
         <div class="card-body">
-          </tr>
-
-<hr>
-<div class="container bootstrap snippet">
+    <div class="container bootstrap snippet">
     <div class="row">
       <div class="col-sm-10"><h1>Enmanuel Gavilan</h1></div>
     </div>
@@ -39,305 +33,129 @@
             <input type="file" class="text-center center-block file-upload">
           </div><br>
         </div>
-
-
-
-
-
-<div class="card">
-  <div class="card-header">
-    <ul class="nav nav-tabs card-header-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-  </div>
-  <div >
-                    <form id="frmPersonal">
-                            <div class="col-md-12">
-                                <br>
-                                <div class="panel panel-primary">
-                                  <div class="panel-heading">
-                                    <h3 class="panel-title">Personal Information</h3>
-                                  </div>
-                                  <div class="panel-body">
-                                      <p style="color:red"><i>* Required</i></p>
-
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Full Name *</label>
-                                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
-                                            <div id="fullname_error_message" style="color:red"></div>
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">E-mail *</label>
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="E-mail">
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Address *</label>
-                                            <textarea type="text" style="overflow:auto;resize:none" class="form-control" id="address" name="address" placeholder="Address"></textarea>
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Date of Birth *</label>
-                                            <input type="date" class="form-control" id="dateBirth" name="dateBirth" placeholder="Date of Birth">
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Place of Birth *</label>
-                                            <textarea type="text" style="overflow:auto;resize:none" class="form-control" id="address" name="address" placeholder="Address"></textarea>
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Full Name *</label>
-                                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name*">
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Gender *</label><br>
-                                             <label class="radio-inline"><input type="radio" name="optradio">Male</label>
-                                                         <label class="radio-inline"><input type="radio" name="optradio">Female</label>
-                                                         <label class="radio-inline"><input type="radio" name="optradio">Other</label> 
-                                          </div>
-                                                </div>
-                                            </div>
-
-                                    </div>
-                                    <hr>
-                                    <div class="col-md-14">
-                                        <div class="panel panel-default">
-                                            <div class="panel-body">
-                                                <div class="form-group">
-                                                  <label class="col-md-10 control-label" for="button1id"></label>
-                                                  <div align="center" class="col-md-12">
-                                                    <button id="buttonCancelPersonalInf" class="btn btn-danger">Cancel</button>
-                                                    <button id="buttonSavePersonalInf" class="btn btn-primary">Save</button>
-                                                  </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
       <div class="col-sm-8">
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#personal">Personal Information</a></li>
-                <li><a data-toggle="tab" href="#contact">Contact Information</a></li>
-                <li><a data-toggle="tab" href="#emergency">Emergency Information</a></li>
-                <li><a data-toggle="tab" href="#professional">Professional Information</a></li>
+                <li><a class="nav-item nav-link active" data-toggle="tab" href="#personal">Personal Inform</a></li>
+                <li><a class="nav-item nav-link" data-toggle="tab" href="#contact">Contact Information</a></li>
+                <li><a class="nav-item nav-link"  data-toggle="tab" href="#emergency">Emergency Information</a></li>
+                <li><a class="nav-item nav-link" data-toggle="tab" href="#professional">Professional Information</a></li>
               </ul>
 <!--1-Personal Information-------->              
           <div class="tab-content">
             <div class="tab-pane active" id="personal">
-                    <form id="frmPersonal">
-                            <div class="col-md-12">
-                                <br>
-                                <div class="panel panel-primary">
-                                  <div class="panel-heading">
-                                    <h3 class="panel-title">Personal Information</h3>
-                                  </div>
-                                  <div class="panel-body">
-                                      <p style="color:red"><i>* Required</i></p>
-
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Full Name *</label>
-                                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
-                                            <div id="fullname_error_message" style="color:red"></div>
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">E-mail *</label>
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="E-mail">
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Address *</label>
-                                            <textarea type="text" style="overflow:auto;resize:none" class="form-control" id="address" name="address" placeholder="Address"></textarea>
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Date of Birth *</label>
-                                            <input type="date" class="form-control" id="dateBirth" name="dateBirth" placeholder="Date of Birth">
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Place of Birth *</label>
-                                            <textarea type="text" style="overflow:auto;resize:none" class="form-control" id="address" name="address" placeholder="Address"></textarea>
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Full Name *</label>
-                                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name*">
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Gender *</label><br>
-                                             <label class="radio-inline"><input type="radio" name="optradio">Male</label>
-                                                         <label class="radio-inline"><input type="radio" name="optradio">Female</label>
-                                                         <label class="radio-inline"><input type="radio" name="optradio">Other</label> 
-                                          </div>
-                                                </div>
-                                            </div>
-
-                                    </div>
-                                    <hr>
-                                    <div class="col-md-14">
-                                        <div class="panel panel-default">
-                                            <div class="panel-body">
-                                                <div class="form-group">
-                                                  <label class="col-md-10 control-label" for="button1id"></label>
-                                                  <div align="center" class="col-md-12">
-                                                    <button id="buttonCancelPersonalInf" class="btn btn-danger">Cancel</button>
-                                                    <button id="buttonSavePersonalInf" class="btn btn-primary">Save</button>
-                                                  </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
-                                </div>
-                            </div>
+              <form id="frmPersonal">
+                <div class="col-md-12">
+                  <br>
+                  <div class="card border-primary mb-3">
+                    <div class="card">
+                      <div class="card-header text-white bg-primary">
+                          <h5>Personal Information</h5>
+                      </div>
+                      <div class="card-body">
+                        <p style="color:red"><i>* Required</i></p>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <strong>Full Name *</strong>
+                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
+                            <div id="fullname_error_message" style="color:red"></div>
+                          </div>
+                          <div class="col-md-12">
+                            <strong>E-mail *</strong>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="E-mail">
+                            <div id="email_error_message" style="color:red"></div>
+                          </div>
+                          <div class="col-md-12">
+                            <strong>Address *</strong>                                
+                            <textarea class="form-control" id="address" name="address" placeholder="Address" rows="2"></textarea>
+                            <div id="address_error_message" style="color:red"></div>
+                          </div>
+                          <div class="col-md-12">
+                            <strong>Date of Birth *</strong>
+                            <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Date of Birth">
+                            <div id="birthdate_error_message" style="color:red"></div>
+                          </div>
+                          <div class="col-md-12">
+                            <strong>Place of Birth *</strong>                                
+                            <textarea class="form-control" id="birthPlace" name="birthPlace" placeholder="Address" rows="2"></textarea>
+                            <div id="birthplace_error_message" style="color:red"></div>
+                          </div>
+                          <div class="col-md-12">
+                            <strong>Gender *</strong><br>
+                            <label class="radio-inline"><input type="radio" name="optradio" checked>Male </label>
+                            <label class="radio-inline"><input type="radio" name="optradio">Female </label>
+                            <label class="radio-inline"><input type="radio" name="optradio">Other</label> 
+                            <div id="gender_error_message" style="color:red"></div>
+                          </div>
                         </div>
-                    </form>
-             </div>
-<!--2-Contact Information--------> 
-             <div class="tab-pane" id="contact">
-               <h2></h2>
-                    <form id="frmContact">
-                            <div class="col-md-12">
-                                <div class="panel panel-primary">
-                                  <div class="panel-heading">
-                                    <h3 class="panel-title">Contact Information</h3>
-                                  </div>
-                                  <div class="panel-body">
-                                      <p style="color:red"><i>* Required</i></p>
-
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Home Address *</label>
-                                            <textarea type="text" style="overflow:auto;resize:none" class="form-control" id="address" name="address" placeholder="Home Address"></textarea>
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Home Phone *</label>
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="Home Phone">
-                                          </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                   <div class="form-group">
-                                                        <label class="control-label">Mobile Phone *</label>
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="Mobile Phone">
-                                          </div>
-                                                </div>
-                                            </div>
-                                            
-                                    </div>
-                                    <hr>
-                                    <div class="col-md-14">
-                                        <div class="panel panel-default">
-                                            <div class="panel-body">
-                                                <div class="form-group">
-                                                  <label class="col-md-10 control-label" for="button1id"></label>
-                                                  <div align="center" class="col-md-12">
-                                                    <button id="buttonCancelContact" class="btn btn-danger">Cancel</button>
-                                                    <button id="buttonSaveContact" class="btn btn-primary">Save</button>
-                                                  </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <hr>                
+                        <div align="center">
+                          <button id="btnCancelPersonalInf" class="btn btn-danger">Cancel</button>
+                          <button id="btnSavePersonalInf" class="btn btn-primary">Save</button>
                         </div>
-                    </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+<!--2-Contact Information-------->
+            <div class="tab-pane" id="contact">
+              <form id="frmPersonal">
+                <div class="col-md-12">
+                  <br>
+                  <div class="card border-primary mb-3">
+                    <div class="card">
+                      <div class="card-header text-white bg-primary">
+                          <h5>Contact Information</h5>
+                      </div>
+                        <div class="card-body">
+                          <p style="color:red"><i>* Required</i></p>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <strong>Home Address *</strong>
+                            <textarea class="form-control" id="address" name="address" placeholder="Address" rows="2"></textarea>
+                            <div id="homeAdd_error_message" style="color:red"></div>
+                          </div>
+                          <div class="col-md-12">
+                            <strong>Home Phone *</strong>
+                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
+                            <div id="homephone_error_message" style="color:red"></div>
+                          </div>
+                          <div class="col-md-12">
+                            <strong>Mobile Phone *</strong>
+                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
+                            <div id="mobile_error_message" style="color:red"></div>
+                          </div>                         
+                        </div>
+                        <hr>                
+                        <div align="center">
+                          <button id="btnCancelPersonalInf" class="btn btn-danger">Cancel</button>
+                          <button id="btnSavePersonalInf" class="btn btn-primary">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
              </div>
 <!--3-Emergency Contact Information-------->
              <div class="tab-pane" id="emergency">
-            <h2></h2>
-                    <form id="frmEmergency">
+                    <form id="frmPersonal">
                             <div class="col-md-12">
-                                <div class="panel panel-primary">
-                                  <div class="panel-heading">
-                                    <h3 class="panel-title">Emergency Contact Information</h3>
+                                <br>
+                            <div class="card border-primary mb-3">
+                                <div class="card">
+                                  <div class="card-header text-white bg-primary">
+                                     <h5>Emergency Contact Information</h5>
                                   </div>
-                                  <div class="panel-body">
+                                  <div class="card-body">
                                       <p style="color:red"><i>* Required</i></p>
-
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                    <div class="form-group">
-                                                        <label class="control-label">Contact Name *</label>
+                                                        <label class="control-label"><strong>Contact Name *</strong></label>
                                             <input type="text" class="form-control" id="contactName" name="contactName" placeholder="Contact Name">
                                           </div>
                                                 </div>
@@ -345,7 +163,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                    <div class="form-group">
-                                                        <label class="control-label">Contact Address *</label>
+                                                        <label class="control-label"><strong>Contact Address *</strong></label>
                                             <textarea type="text" style="overflow:auto;resize:none" class="form-control" id="contactAddress" name="contactAddress" placeholder="Contact Address"></textarea>
                                           </div>
                                                 </div>
@@ -353,7 +171,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                    <div class="form-group">
-                                                        <label class="control-label">Contact Phone No. *</label>
+                                                        <label class="control-label"><strong>Contact Phone No. *</strong></label>
                                             <input type="text" class="form-control" id="contactPhone" name="contactPhone" placeholder="Contact Phone No.">
                                           </div>
                                                 </div>
@@ -361,7 +179,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                    <div class="form-group">
-                                                        <label class="control-label">Contact E-mail *</label>
+                                                        <label class="control-label"><strong>Contact E-mail *</strong></label>
                                             <input type="text" class="form-control" id="contactEmail" name="contactEmail" placeholder="E-mail">
                                           </div>
                                                 </div>
@@ -369,7 +187,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                    <div class="form-group">
-                                                        <label class="control-label">Relation *</label>
+                                                        <label class="control-label"><strong>Relation *</strong></label>
                                             <textarea type="text" style="overflow:auto;resize:none" class="form-control" id="relation" name="relation" placeholder="Relation"></textarea>
                                           </div>
                                                 </div>
@@ -377,18 +195,19 @@
                                     </div>
                                     <hr>
                                     <div class="col-md-14">
-                                        <div class="panel panel-default">
-                                            <div class="panel-body">
+                                        <div>
+                                            <div>
                                                 <div class="form-group">
                                                   <label class="col-md-10 control-label" for="button1id"></label>
                                                   <div align="center" class="col-md-12">
-                                                    <button id="buttonCancelContact" class="btn btn-danger">Cancel</button>
-                                                    <button id="buttonSaveContact" class="btn btn-primary">Save</button>
+                                                    <button id="buttonCancelPersonalInf" class="btn btn-danger">Cancel</button>
+                                                    <button id="buttonSavePersonalInf" class="btn btn-primary">Save</button>
                                                   </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -396,21 +215,22 @@
               </div>
 <!--4-Professional Information-------->
              <div class="tab-pane" id="professional">
-                <h2></h2>
-                    <form id="frmProfessional">
+                    <form id="frmPersonal">
                             <div class="col-md-12">
-                                <div class="panel panel-primary">
-                                  <div class="panel-heading">
-                                    <h3 class="panel-title">Professional Information</h3>
+                                <br>
+                            <div class="card border-primary mb-3">
+                                <div class="card">
+                                  <div class="card-header text-white bg-primary">
+                                     <h5>Professional Information</h5>
                                   </div>
-                                  <div class="panel-body">
+                                  <div class="card-body">
                                       <p style="color:red"><i>* Required</i></p>
 
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                    <div class="form-group">
-                                                        <label class="control-label">Profession *</label>
+                                                        <label class="control-label"><strong>Profession *</strong></label>
                                             <input type="text" class="form-control" id="contactName" name="contactName" placeholder="Profession">
                                           </div>
                                                 </div>
@@ -418,7 +238,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                    <div class="form-group">
-                                                        <label class="control-label">Experience(years) *</label>
+                                                        <label class="control-label"><strong>Experience(years) *</strong></label>
                                             <input type="text" class="form-control" id="experience" name="experience" placeholder="Experience(years)">
                                           </div>
                                                 </div>
@@ -426,7 +246,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                    <div class="form-group">
-                                                        <label class="control-label">School *</label>
+                                                        <label class="control-label"><strong>School *</strong></label>
                                             <input type="text" class="form-control" id="school" name="school" placeholder="School">
                                           </div>
                                                 </div>
@@ -434,7 +254,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                    <div class="form-group">
-                                                        <label class="control-label">Department *</label>
+                                                        <label class="control-label"><strong>Department *</strong></label>
                                             <input type="text" class="form-control" id="department" name="department" placeholder="Department">
                                           </div>
                                                 </div>
@@ -442,7 +262,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                    <div class="form-group">
-                                                        <label class="control-label">Hired Deparment *</label>
+                                                        <label class="control-label"><strong>Hired Deparment *</strong></label>
                                             <input type="text" class="form-control" id="hiredDeparment" name="hiredDeparment" placeholder="Hired Deparment">
                                           </div>
                                                 </div>
@@ -450,7 +270,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                    <div class="form-group">
-                                                        <label class="control-label">Hiring Date *</label>
+                                                        <label class="control-label"><strong>Hiring Date *</strong></label>
                                             <input type="date" class="form-control" id="hiringDate" name="hiringDate" placeholder="Hiring  Date">
                                           </div>
                                                 </div>
@@ -458,31 +278,36 @@
                                     </div>
                                     <hr>
                                     <div class="col-md-14">
-                                        <div class="panel panel-default">
-                                            <div class="panel-body">
+                                        <div>
+                                            <div>
                                                 <div class="form-group">
                                                   <label class="col-md-10 control-label" for="button1id"></label>
                                                   <div align="center" class="col-md-12">
-                                                    <button id="buttonCancelContact" class="btn btn-danger">Cancel</button>
-                                                    <button id="buttonSaveContact" class="btn btn-primary">Save</button>
+                                                    <button id="buttonCancelPersonalInf" class="btn btn-danger">Cancel</button>
+                                                    <button id="buttonSavePersonalInf" class="btn btn-primary">Save</button>
                                                   </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                </div>
                             </div>
                         </div>
                     </form>
               </div>
-              </div><!--/tab-pane-->
-          </div><!--/tab-content-->
-        </div><!--/col-9-->
-    </div><!--/row-->
 
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   </div>
+</div>
 </body>
 <script>
 $(function() {
