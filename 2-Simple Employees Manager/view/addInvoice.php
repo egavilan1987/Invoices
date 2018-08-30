@@ -17,14 +17,14 @@
         <li class="breadcrumb-item active">New Employee</li>
       </ol>
       <!-- Example DataUsers Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-plus"></i> Add New Employee</div>
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class="fa fa-plus"></i> Add New Employee</div>
         <div class="card-body">
-    <div class="container bootstrap snippet">
-    <div class="row">
-      <div class="col-sm-10"><h1>Enmanuel Gavilan</h1></div>
-    </div>
+          <div class="container bootstrap snippet">
+            <div class="row">
+              <div class="col-sm-10"><h1>Enmanuel Gavilan</h1></div>
+           </div>
     <div class="row">
       <div class="col-sm-3">
           <div class="text-center">
@@ -54,32 +54,32 @@
                       <div class="card-body">
                         <p style="color:red"><i>* Required</i></p>
                         <div class="row">
-                          <div class="col-md-12">
+                          <div class="form-group col-md-12">
                             <strong>Full Name *</strong>
                             <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
                             <div id="fullname_error_message" style="color:red"></div>
                           </div>
-                          <div class="col-md-12">
+                          <div class="form-group col-md-12">
                             <strong>E-mail *</strong>
                             <input type="text" class="form-control" id="email" name="email" placeholder="E-mail">
                             <div id="email_error_message" style="color:red"></div>
                           </div>
-                          <div class="col-md-12">
+                          <div class="form-group col-md-12">
                             <strong>Address *</strong>                                
                             <textarea class="form-control" id="address" name="address" placeholder="Address" rows="2"></textarea>
                             <div id="address_error_message" style="color:red"></div>
                           </div>
-                          <div class="col-md-12">
+                          <div class="form-group col-md-12">
                             <strong>Date of Birth *</strong>
                             <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Date of Birth">
                             <div id="birthdate_error_message" style="color:red"></div>
                           </div>
-                          <div class="col-md-12">
+                          <div class="form-group col-md-12">
                             <strong>Place of Birth *</strong>                                
                             <textarea class="form-control" id="birthPlace" name="birthPlace" placeholder="Address" rows="2"></textarea>
                             <div id="birthplace_error_message" style="color:red"></div>
                           </div>
-                          <div class="col-md-12">
+                          <div class="form-group col-md-12">
                             <strong>Gender *</strong><br>
                             <label class="radio-inline"><input type="radio" name="optradio" checked>Male </label>
                             <label class="radio-inline"><input type="radio" name="optradio">Female </label>
@@ -111,17 +111,17 @@
                         <div class="card-body">
                           <p style="color:red"><i>* Required</i></p>
                         <div class="row">
-                          <div class="col-md-12">
+                          <div class="form-group col-md-12">
                             <strong>Home Address *</strong>
                             <textarea class="form-control" id="address" name="address" placeholder="Address" rows="2"></textarea>
-                            <div id="homeAdd_error_message" style="color:red"></div>
+                            <div id="home_address_error_message" style="color:red"></div>
                           </div>
-                          <div class="col-md-12">
+                          <div class="form-group col-md-12">
                             <strong>Home Phone *</strong>
                             <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
-                            <div id="homephone_error_message" style="color:red"></div>
+                            <div id="home_phone_error_message" style="color:red"></div>
                           </div>
-                          <div class="col-md-12">
+                          <div class="form-group col-md-12">
                             <strong>Mobile Phone *</strong>
                             <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
                             <div id="mobile_error_message" style="color:red"></div>
@@ -137,7 +137,6 @@
                   </div>
                 </div>
               </form>
-
              </div>
 <!--3-Emergency Contact Information-------->
              <div class="tab-pane" id="emergency">
@@ -157,6 +156,7 @@
                                                    <div class="form-group">
                                                         <label class="control-label"><strong>Contact Name *</strong></label>
                                             <input type="text" class="form-control" id="contactName" name="contactName" placeholder="Contact Name">
+                                            <div id="contact_name_error_message" style="color:red"></div>
                                           </div>
                                                 </div>
                                             </div>
@@ -165,6 +165,7 @@
                                                    <div class="form-group">
                                                         <label class="control-label"><strong>Contact Address *</strong></label>
                                             <textarea type="text" style="overflow:auto;resize:none" class="form-control" id="contactAddress" name="contactAddress" placeholder="Contact Address"></textarea>
+                                              <div id="contact_address_error_message" style="color:red"></div>
                                           </div>
                                                 </div>
                                             </div>
@@ -173,6 +174,7 @@
                                                    <div class="form-group">
                                                         <label class="control-label"><strong>Contact Phone No. *</strong></label>
                                             <input type="text" class="form-control" id="contactPhone" name="contactPhone" placeholder="Contact Phone No.">
+                                            <div id="contact_phone_error_message" style="color:red"></div>
                                           </div>
                                                 </div>
                                             </div>
@@ -181,6 +183,7 @@
                                                    <div class="form-group">
                                                         <label class="control-label"><strong>Contact E-mail *</strong></label>
                                             <input type="text" class="form-control" id="contactEmail" name="contactEmail" placeholder="E-mail">
+                                            <div id="contact_email_error_message" style="color:red"></div>
                                           </div>
                                                 </div>
                                             </div>
@@ -189,6 +192,7 @@
                                                    <div class="form-group">
                                                         <label class="control-label"><strong>Relation *</strong></label>
                                             <textarea type="text" style="overflow:auto;resize:none" class="form-control" id="relation" name="relation" placeholder="Relation"></textarea>
+                                              <div id="contact_relation_error_message" style="color:red"></div>
                                           </div>
                                                 </div>
                                             </div>
@@ -232,6 +236,7 @@
                                                    <div class="form-group">
                                                         <label class="control-label"><strong>Profession *</strong></label>
                                             <input type="text" class="form-control" id="contactName" name="contactName" placeholder="Profession">
+                                            <div id="profession_error_message" style="color:red"></div>
                                           </div>
                                                 </div>
                                             </div>
@@ -240,6 +245,7 @@
                                                    <div class="form-group">
                                                         <label class="control-label"><strong>Experience(years) *</strong></label>
                                             <input type="text" class="form-control" id="experience" name="experience" placeholder="Experience(years)">
+                                            <div id="experience_error_message" style="color:red"></div>
                                           </div>
                                                 </div>
                                             </div>
@@ -248,6 +254,7 @@
                                                    <div class="form-group">
                                                         <label class="control-label"><strong>School *</strong></label>
                                             <input type="text" class="form-control" id="school" name="school" placeholder="School">
+                                            <div id="school_error_message" style="color:red"></div>
                                           </div>
                                                 </div>
                                             </div>
@@ -256,6 +263,7 @@
                                                    <div class="form-group">
                                                         <label class="control-label"><strong>Department *</strong></label>
                                             <input type="text" class="form-control" id="department" name="department" placeholder="Department">
+                                            <div id="deparment_error_message" style="color:red"></div>
                                           </div>
                                                 </div>
                                             </div>
@@ -264,6 +272,7 @@
                                                    <div class="form-group">
                                                         <label class="control-label"><strong>Hired Deparment *</strong></label>
                                             <input type="text" class="form-control" id="hiredDeparment" name="hiredDeparment" placeholder="Hired Deparment">
+                                            <div id="hired_department_error_message" style="color:red"></div>
                                           </div>
                                                 </div>
                                             </div>
@@ -272,6 +281,7 @@
                                                    <div class="form-group">
                                                         <label class="control-label"><strong>Hiring Date *</strong></label>
                                             <input type="date" class="form-control" id="hiringDate" name="hiringDate" placeholder="Hiring  Date">
+                                            <div id="hired_date_error_message" style="color:red"></div>
                                           </div>
                                                 </div>
                                             </div>
@@ -296,17 +306,15 @@
                         </div>
                     </form>
               </div>
-
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
+              </div><!--/tab-pane-->
+          </div><!--/tab-content-->
+        </div><!--/col-9-->
+    </div><!--/row-->
     </div>
   </div>
+</div>
+
+
 </div>
 </body>
 <script>
