@@ -793,6 +793,81 @@ $('#btnSaveDepartment').click(function(){
         </div><!--/col-9-->
     </div><!--/row-->
 
+*************************************************************************************************************************************
+
+
+https://bootsnipp.com/snippets/5Moza
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add New Department</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Department</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+        <p style="color:red"><i>*Required</i></p>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Department*:</label>
+            <input type="text" class="form-control" id="department" placeholder="Department">
+            <div id="department_error_message" style="color:red"></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="btnSaveDepartment" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+-----------------------------------------------------------------------------------------------
+
+
+	$(document).ready(function () {
+
+   $("#department").focusout(function() {
+      check_department();
+    });
+
+   function check_department() {
+    var customer_length = $("#department").val().length;
+    
+    if( $.trim( $('#department').val() ) == '' ){
+      $("#department_error_message").html("Input is blank!");
+      $("#department_error_message").show();
+      error_department = true;
+      $("#department").addClass("is-invalid");
+
+      }else{
+        $("#department").removeClass("is-invalid");
+        $("#department").addClass("form-control");
+        $("#department_error_message").hide();
+      
+    }
+  }
+$('#btnSaveDepartment').click(function(){
+        error_department = false;
+        
+        check_department();
+        
+        if(error_department == false){
+            alert("Good to go");
+        }
+
+    });
+});
+
 
 
 -
