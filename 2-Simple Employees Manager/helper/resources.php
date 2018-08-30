@@ -798,6 +798,7 @@ $('#btnSaveDepartment').click(function(){
 
 https://bootsnipp.com/snippets/5Moza
 
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -819,7 +820,7 @@ https://bootsnipp.com/snippets/5Moza
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Department*:</label>
             <input type="text" class="form-control" id="department" placeholder="Department">
-            <div id="department_error_message" style="color:red"></div>
+            <div id="department_error_message" class="text-danger"></div>
           </div>
         </form>
       </div>
@@ -851,7 +852,7 @@ https://bootsnipp.com/snippets/5Moza
 
       }else{
         $("#department").removeClass("is-invalid");
-        $("#department").addClass("form-control");
+        //$("#department").addClass("form-control");
         $("#department_error_message").hide();
       
     }
