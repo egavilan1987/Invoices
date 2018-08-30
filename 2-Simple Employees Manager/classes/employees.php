@@ -1,26 +1,26 @@
 <?php 
 	class Employees{
-		public function addInvoice($data){
+		public function addEmployee($data){
 			
 			$c=new Connect();
 			$connection=$c->connection();
 
-			$sql="INSERT INTO invoices (customer_name,
-							customer_telephone,
-							description,
-							subtotal,
-							tax,
-							amount,
-							percent_tax,
+			$sql="INSERT INTO employees (fullname,
+							email,
+							local_address,
+							date_birth,
+							birth_place,
+							gender,
+							image,
 							created_date)
 						VALUES (
 							'$data[0]',
 							'$data[1]',
-							'$data[5]',
 							'$data[2]',
-							'$data[4]',
 							'$data[3]',
-							'$data[6]',
+							'$data[4]',
+							'$data[5]',
+							'../../files/profile_images/default-avatar.jpg',
 							 NOW())";
 
 			return mysqli_query($connection,$sql);

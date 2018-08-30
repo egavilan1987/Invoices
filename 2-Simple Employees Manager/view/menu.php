@@ -52,7 +52,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link" href="addInvoice.php">
+          <a class="nav-link" href="addEmployee.php">
             <i class="fa fa-plus"></i>
             <span class="nav-link-text">Add New Employee</span>
           </a>

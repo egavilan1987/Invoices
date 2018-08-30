@@ -46,7 +46,6 @@
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Department:</label>
             <input type="text" class="form-control" id="department">
-
             <div id="department_error_message" style="color:red"></div>
           </div>
         </form>
@@ -75,7 +74,7 @@
             <input type="text" id="idDepartment" hidden="" name="idDepartment">
             <label for="recipient-name" class="col-form-label">Department:</label>
             <input type="text" id="viewDepartment" name="viewDepartment" class="form-control">
-            <div id="edit_department_error_message" style="color:red"></div>
+            <div id="edit_department_error_message"></div>
           </div>
         </form>
       </div>
@@ -126,9 +125,8 @@ function check_department() {
       $("#department_error_message").html("Input is blank!");
       $("#department_error_message").show();
       error_department = true;
-      $('#department').addClass('has-error');
-      //department.style.border = "1px solid red";
-      
+      //$('#department').addClass('has-error');
+      department.style.border = "1px solid red";
       }else{
       $("#department_error_message").hide();
       department.style.border = "1px solid #ccc";
