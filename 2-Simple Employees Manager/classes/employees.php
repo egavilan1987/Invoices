@@ -11,6 +11,8 @@
 							date_birth,
 							birth_place,
 							gender,
+							nationality,
+							marital_status,
 							image,
 							created_date)
 						VALUES (
@@ -20,6 +22,8 @@
 							'$data[3]',
 							'$data[4]',
 							'$data[5]',
+							'$data[6]',
+							'$data[7]',
 							'../../files/profile_images/default-avatar.jpg',
 							 NOW())";
 

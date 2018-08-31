@@ -43,10 +43,11 @@
       </div>
       <div class="modal-body">
         <form>
+          <p class="text-danger"><i>* Required Field</i></p>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Department:</label>
-            <input type="text" class="form-control" id="department">
-            <div id="department_error_message" style="color:red"></div>
+            <label for="recipient-name" class="font-weight-bold">Department <i class="text-danger">*</i></label>
+            <input type="text" class="form-control" id="department" placeholder="Department">
+            <div id="department_error_message" class="text-danger"></div>
           </div>
         </form>
       </div>
@@ -70,11 +71,13 @@
       </div>
       <div class="modal-body">
         <form>
+          <p class="text-danger"><i>* Required Field</i></p>
           <div class="form-group">
             <input type="text" id="idDepartment" hidden="" name="idDepartment">
-            <label for="recipient-name" class="col-form-label">Department:</label>
-            <input type="text" id="viewDepartment" name="viewDepartment" class="form-control">
-            <div id="edit_department_error_message"></div>
+            <label for="recipient-name" class="font-weight-bold">Department <i class="text-danger">*</i></label>
+            <input type="text" id="editDepartment" name="editDepartment" class="form-control"
+            placeholder="Department">
+            <div id="edit_department_error_message" class="text-danger"></div>
           </div>
         </form>
       </div>
@@ -101,48 +104,49 @@
       $('#department').val('');
 
       $("#department_error_message").hide();
-      department.style.border = "1px solid #ccc";
+      $("#department").removeClass("is-invalid");
     });
 
     $('#editDepartmentModal').on('hidden.bs.modal', function () {     
 
       $("#edit_department_error_message").hide();
-      viewDepartment.style.border = "1px solid #ccc";
-
+      $("#editDepartment").removeClass("is-invalid");
     });
 
 
    $("#department").focusout(function() {
       check_department();
     });
-   $("#viewDepartment").focusout(function() {
+   $("#editDepartment").focusout(function() {
       check_edit_department();
     });
 
 function check_department() {
+    var customer_length = $("#department").val().length;
     
     if( $.trim( $('#department').val() ) == '' ){
       $("#department_error_message").html("Input is blank!");
       $("#department_error_message").show();
       error_department = true;
-      //$('#department').addClass('has-error');
-      department.style.border = "1px solid red";
+      $("#department").addClass("is-invalid");
+
       }else{
-      $("#department_error_message").hide();
-      department.style.border = "1px solid #ccc";
+        $("#department").removeClass("is-invalid");
+        $("#department_error_message").hide();
+      
     }
   }
 function check_edit_department() {
     
-    if( $.trim( $('#viewDepartment').val() ) == '' ){
+    if( $.trim( $('#editDepartment').val() ) == '' ){
       $("#edit_department_error_message").html("Input is blank!");
       $("#edit_department_error_message").show();
       error_edit_department = true;
-      viewDepartment.style.border = "1px solid red";
-      
+      $("#editDepartment").addClass("is-invalid");
+     
       }else{
-      $("#edit_department_error_message").hide();
-      viewDepartment.style.border = "1px solid #ccc";
+      $("#editDepartment").removeClass("is-invalid");
+      $("#edit_department_error_message").hide();      
     }
   }
 $('#btnSaveDepartment').click(function(){
@@ -178,7 +182,7 @@ $('#btnSaveDepartment').click(function(){
         if(error_edit_department == false){
         $.ajax({
           type:"POST",
-          data:{department: $("#viewDepartment").val(), idDepartment: $("#idDepartment").val()},
+          data:{department: $("#editDepartment").val(), idDepartment: $("#idDepartment").val()},
           url:"../process/departments/updateDepartment.php",
           success:function(r){
             if(r==1){
@@ -202,7 +206,7 @@ function addDepartmentData(idDepartment){
         success:function(r){
           data=jQuery.parseJSON(r); 
           $('#idDepartment').val(data['id_department']);
-          $('#viewDepartment').val(data['Department']);   
+          $('#editDepartment').val(data['Department']);   
         }
       });
     }

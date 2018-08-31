@@ -11,6 +11,8 @@
 		$_POST['birthDate'],
 		$_POST['birthPlace'],
 		$_POST['gender'],
+		$_POST['nationality'],
+		$_POST['status'],
 				);
 	echo $obj->addEmployee($data);
 	//print_r($_POST);

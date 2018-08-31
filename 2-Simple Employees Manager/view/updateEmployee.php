@@ -22,8 +22,22 @@
         <i class="fa fa-plus"></i> Add New Employee</div>
         <div class="card-body">
           <div class="container bootstrap snippet">
-          <div class="col-sm-12">
-          <!---Personal Information-------->              
+          <div class="row">
+          <div class="col-sm-3">
+            <div class="text-center">
+              <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="img-thumbnail" alt="avatar">
+              <h6>Upload a different photo...</h6>
+              <input type="file" class="text-center center-block file-upload">
+              </div><br>
+            </div>
+          <div class="col-sm-8">
+          <ul class="nav nav-tabs">
+            <li><a class="nav-item nav-link active" data-toggle="tab" href="#personal">Personal Inform</a></li>
+            <li><a class="nav-item nav-link" data-toggle="tab" href="#contact">Contact Information</a></li>
+            <li><a class="nav-item nav-link"  data-toggle="tab" href="#emergency">Emergency Information</a></li>
+            <li><a class="nav-item nav-link" data-toggle="tab" href="#professional">Professional Information</a></li>
+          </ul>
+<!--1-Personal Information-------->              
           <div class="tab-content">
             <div class="tab-pane active" id="personal">
               <form id="frmPersonal">
@@ -35,54 +49,47 @@
                           <h5>Personal Information</h5>
                       </div>
                       <div class="card-body">
-                        <div id="alert_error_message2" class="alert alert-danger" role="alert">
-                          <i class="fa fa-exclamation-triangle"></i>
-                          <strong>Alert!</strong> Please check in on some of the fields below.
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div> 
-                        <p class="text-danger"><i>* Required Fields</i></p>
+                        <p style="color:red"><i>* Required</i></p>
                         <div class="row">
                           <div class="form-group col-md-12">
-                            <strong>Full Name <i class="text-danger">*</i></strong>
+                            <strong>Full Name *</strong>
                             <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
                             <div id="fullname_error_message" style="color:red"></div>
                           </div>
                           <div class="form-group col-md-12">
-                            <strong>E-mail <i class="text-danger">*</i></strong>
+                            <strong>E-mail *</strong>
                             <input type="text" class="form-control" id="email" name="email" placeholder="E-mail">
                             <div id="email_error_message" style="color:red"></div>
                           </div>
                           <div class="form-group col-md-12">
-                            <strong>Local Address <i class="text-danger">*</i></strong>                                
+                            <strong>Address *</strong>                                
                             <textarea class="form-control" id="address" name="address" placeholder="Address" rows="2"></textarea>
                             <div id="address_error_message" style="color:red"></div>
                           </div>
                           <div class="form-group col-md-12">
-                            <strong>Date of Birth <i class="text-danger">*</i></strong>
+                            <strong>Date of Birth *</strong>
                             <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Date of Birth">
                             <div id="birthdate_error_message" style="color:red"></div>
                           </div>
                           <div class="form-group col-md-12">
-                            <strong>Place of Birth </strong>                                
+                            <strong>Place of Birth *</strong>                                
                             <textarea class="form-control" id="birthPlace" name="birthPlace" placeholder="Address" rows="2"></textarea>
                             <div id="birthplace_error_message" style="color:red"></div>
                           </div>
                           <div class="form-group col-md-12">
-                            <strong>Gender <i class="text-danger">*</i></strong><br>
+                            <strong>Gender *</strong><br>
                             <label class="radio-inline"><input type="radio" name="gender" value="Male" checked>Male </label>
                             <label class="radio-inline"><input type="radio" name="gender" value="Female">Female </label>
                             <label class="radio-inline"><input type="radio" name="gender" value="Other">Other</label> 
                             <div id="gender_error_message" style="color:red"></div>
                           </div>
                           <div class="form-group col-md-12">
-                            <strong>Nationality <i class="text-danger">*</i></strong>
+                            <strong>Nationality *</strong>
                             <input type="text" class="form-control" id="nationality" name="nationality" placeholder="Nationality">
                             <div id="nationality_error_message" style="color:red"></div>
                           </div>
                           <div class="form-group col-md-12">
-                            <strong>Marital Status <i class="text-danger">*</i></strong><br>
+                            <strong>Marital Status *</strong><br>
                             <select name="status" id="status" class="form-control">
                               <option value="" hidden>Marital Status</option>
                               <option>Single</option>
@@ -103,12 +110,160 @@
                 </div>
               </form>
             </div>
-          </div>
-          </div>
-          </div>
-        </div>
-     </div>
+<!--2-Contact Information-------->
+            <div class="tab-pane" id="contact">
+              <form id="frmContact">
+                <div class="col-md-12">
+                  <br>
+                  <div class="card border-primary mb-3">
+                    <div class="card">
+                      <div class="card-header text-white bg-primary">
+                          <h5>Contact Information</h5>
+                      </div>
+                        <div class="card-body">
+                          <p style="color:red"><i>* Required</i></p>
+                        <div class="row">
+                          <div class="form-group col-md-12">
+                            <strong>Home Address *</strong>
+                            <textarea class="form-control" id="address" name="address" placeholder="Address" rows="2"></textarea>
+                            <div id="home_address_error_message" style="color:red"></div>
+                          </div>
+                          <div class="form-group col-md-12">
+                            <strong>Home Phone *</strong>
+                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
+                            <div id="home_phone_error_message" style="color:red"></div>
+                          </div>
+                          <div class="form-group col-md-12">
+                            <strong>Mobile Phone *</strong>
+                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
+                            <div id="mobile_error_message" style="color:red"></div>
+                          </div>                         
+                        </div>
+                        <hr>                
+                        <div align="center">
+                          <button id="btnCancelContact" class="btn btn-danger">Cancel</button>
+                          <button id="btnSaveContact" class="btn btn-primary">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+             </div>
+<!--3-Emergency Contact Information-------->
+             <div class="tab-pane" id="emergency">
+              <form id="frmEmergency">
+                <div class="col-md-12">
+                  <br>
+                  <div class="card border-primary mb-3">
+                    <div class="card">
+                      <div class="card-header text-white bg-primary">
+                          <h5>Emergency Contact Information</h5>
+                      </div>
+                        <div class="card-body">
+                          <p style="color:red"><i>* Required</i></p>
+                        <div class="row">
+                          <div class="form-group col-md-12">
+                            <strong>Contact Name *</strong>
+                            <input type="text" class="form-control" id="contactName" name="contactName" placeholder="Contact Name">
+                            <div id="contact_name_error_message" style="color:red"></div>
+                          </div>
+                          <div class="form-group col-md-12">
+                            <strong>Contact Address *</strong>
+                            <textarea type="text" class="form-control" id="contactAddress" name="contactAddress" placeholder="Contact Address" rows="2"></textarea>
+                            <div id="contact_address_error_message" style="color:red"></div>
+                          </div>
+                          <div class="form-group col-md-12">
+                            <strong>Contact Phone No. *</strong>
+                            <input type="text" class="form-control" id="contactPhone" name="contactPhone" placeholder="Contact Phone No.">
+                            <div id="contact_phone_error_message" style="color:red"></div>
+                          </div>
+                          <div class="form-group col-md-12">
+                            <strong>Contact E-mail *</strong>
+                            <input type="text" class="form-control" id="contactEmail" name="contactEmail" placeholder="E-mail">
+                            <div id="contact_email_error_message" style="color:red"></div>
+                          </div> 
+                          <div class="form-group col-md-12">
+                            <strong>Relation *</strong>
+                            <textarea type="text" class="form-control" id="relation" name="relation" placeholder="Relation" rows="2" ></textarea>
+                            <div id="contact_relation_error_message" style="color:red"></div>
+                          </div>                          
+                        </div>
+                        <hr>                
+                        <div align="center">
+                          <button id="btnCancelEmergency" class="btn btn-danger">Cancel</button>
+                          <button id="btnSaveEmergency" class="btn btn-primary">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+<!--4-Professional Information-------->
+              <div class="tab-pane" id="professional">
+              <form id="frmPersonal">
+                <div class="col-md-12">
+                  <br>
+                  <div class="card border-primary mb-3">
+                    <div class="card">
+                      <div class="card-header text-white bg-primary">
+                          <h5>Professional Information</h5>
+                      </div>
+                        <div class="card-body">
+                          <p style="color:red"><i>* Required</i></p>
+                        <div class="row">
+                          <div class="form-group col-md-12">
+                            <strong>Profession *</strong>
+                            <input type="text" class="form-control" id="contactName" name="contactName" placeholder="Profession">
+                            <div id="profession_error_message" style="color:red"></div>
+                          </div>
+                          <div class="form-group col-md-12">
+                            <strong>Experience(years) *</strong>
+                            <input type="text" class="form-control" id="experience" name="experience" placeholder="Profession">
+                            <div id="experience_error_message" style="color:red"></div>
+                          </div>
+                          <div class="form-group col-md-12">
+                            <strong>School *</strong>
+                            <input type="text" class="form-control" id="school" name="school" placeholder="Profession">
+                            <div id="school_error_message" style="color:red"></div>
+                          </div>
+                          <div class="form-group col-md-12">
+                            <strong>Department *</strong>
+                            <input type="text" class="form-control" id="department" name="department" placeholder="Profession">
+                            <div id="add_department_error_message" style="color:red"></div>
+                          </div>
+                          <div class="form-group col-md-12">
+                            <strong>Hired Department *</strong>
+                            <input type="text" class="form-control" id="hired_department" name="hired_department" placeholder="Profession">
+                            <div id="hired_department_error_message" style="color:red"></div>
+                          </div>
+                          <div class="form-group col-md-12">
+                            <strong>Hiring Date *</strong>
+                              <input type="date" class="form-control" id="hiringDate" name="hiringDate" placeholder="Hiring  Date">
+                              <div id="hired_date_error_message" style="color:red"></div>
+                          </div>                          
+                        </div>
+                        <hr>                
+                        <div align="center">
+                          <button id="btnCancelProfessional" class="btn btn-danger">Cancel</button>
+                          <button id="btnSaveProfessional" class="btn btn-primary">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              </div>
+              </div><!--/tab-pane-->
+          </div><!--/tab-content-->
+        </div><!--/col-9-->
+    </div><!--/row-->
+    </div>
   </div>
+</div>
+
+
 </div>
 </body>
 <script>
