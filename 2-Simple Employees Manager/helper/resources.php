@@ -869,6 +869,62 @@ $('#btnSaveDepartment').click(function(){
     });
 });
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+                          <div class="form-group col-md-12">
+                            <strong>Full Name <i class="text-danger">*</i></strong>
+                            <input type="text" class="form-control" id="fullname" name="fullname" maxlength="50"placeholder="Full Name">
+                            <div id="fullname_error_message" class="text-danger"></div>
+                          </div>
+
+
+
+
+   $("#fullname").focusout(function() {
+      check_fullname();
+    });
+    
+   function check_fullname() {
+        
+    var fullname_length = $("#fullname").val().length;
+    
+    if( $.trim( $('#fullname').val() ) == '' ){
+      $("#fullname_error_message").html("Input is blank!");
+      $("#fullname_error_message").show();
+      $("#fullname").addClass("is-invalid");
+      }else if(fullname_length < 5 || fullname_length > 50) {
+      $("#fullname_error_message").html("Should be between 5-30 characters");
+      $("#fullname_error_message").show();
+      $("#fullname").addClass("is-invalid");
+      }else{
+      $("#fullname_error_message").hide();
+      $("#fullname").removeClass("is-invalid");
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -
