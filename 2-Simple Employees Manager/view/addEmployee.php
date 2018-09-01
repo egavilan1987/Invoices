@@ -46,40 +46,40 @@
                         <div class="row">
                           <div class="form-group col-md-12">
                             <strong>Full Name <i class="text-danger">*</i></strong>
-                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
-                            <div id="fullname_error_message" style="color:red"></div>
+                            <input type="text" class="form-control" id="fullname" name="fullname" maxlength="50" placeholder="Full Name">
+                            <div id="fullname_error_message" class="text-danger"></div>
                           </div>
                           <div class="form-group col-md-12">
                             <strong>E-mail <i class="text-danger">*</i></strong>
-                            <input type="text" class="form-control" id="email" name="email" placeholder="E-mail">
-                            <div id="email_error_message" style="color:red"></div>
+                            <input type="text" class="form-control" id="email" name="email" maxlength="30" placeholder="E-mail">
+                            <div id="email_error_message" class="text-danger"></div>
                           </div>
                           <div class="form-group col-md-12">
                             <strong>Local Address <i class="text-danger">*</i></strong>                                
-                            <textarea class="form-control" id="address" name="address" placeholder="Address" rows="2"></textarea>
-                            <div id="address_error_message" style="color:red"></div>
+                            <textarea class="form-control" id="address" name="address" maxlength="80" placeholder="Address" rows="2"></textarea>
+                            <div id="address_error_message" class="text-danger"></div>
                           </div>
                           <div class="form-group col-md-12">
                             <strong>Date of Birth <i class="text-danger">*</i></strong>
-                            <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Date of Birth">
-                            <div id="birthdate_error_message" style="color:red"></div>
+                            <input type="date" class="form-control" id="birth_date" name="birth_date" placeholder="Date of Birth">
+                            <div id="birth_date_error_message" class="text-danger"></div>
                           </div>
                           <div class="form-group col-md-12">
                             <strong>Place of Birth </strong>                                
-                            <textarea class="form-control" id="birthPlace" name="birthPlace" placeholder="Address" rows="2"></textarea>
-                            <div id="birthplace_error_message" style="color:red"></div>
+                            <textarea class="form-control" id="birth_place" name="birth_place" maxlength="80 placeholder="Place of Birth" rows="2"></textarea>
+                            <div id="birth_place_error_message" class="text-danger"></div>
                           </div>
                           <div class="form-group col-md-12">
                             <strong>Gender <i class="text-danger">*</i></strong><br>
                             <label class="radio-inline"><input type="radio" name="gender" value="Male" checked>Male </label>
                             <label class="radio-inline"><input type="radio" name="gender" value="Female">Female </label>
                             <label class="radio-inline"><input type="radio" name="gender" value="Other">Other</label> 
-                            <div id="gender_error_message" style="color:red"></div>
+                            <div id="gender_error_message" class="text-danger"></div>
                           </div>
                           <div class="form-group col-md-12">
                             <strong>Nationality <i class="text-danger">*</i></strong>
                             <input type="text" class="form-control" id="nationality" name="nationality" placeholder="Nationality">
-                            <div id="nationality_error_message" style="color:red"></div>
+                            <div id="nationality_error_message" class="text-danger"></div>
                           </div>
                           <div class="form-group col-md-12">
                             <strong>Marital Status <i class="text-danger">*</i></strong><br>
@@ -89,7 +89,7 @@
                               <option>Married</option>
                               <option>Divorced</option>
                             </select>
-                            <div id="role_error_message" style="color:red"></div>
+                            <div id="status_error_message" class="text-danger"></div>
                           </div>
                         </div>
                         <hr>                
@@ -113,114 +113,136 @@
 </body>
 <script>
 $(function() {
+ 
+   $("#fullname").focusout(function() {
+      check_fullname();
+    });
+   $("#email").focusout(function() {
+      check_email();
+    }); 
+   $("#address").focusout(function() {
+      check_address();
+    });
+   $("#birth_date").focusout(function() {
+      check_birth_date();
+    });
+   $("#birth_place").focusout(function() {
+      check_birth_place();
+    });
+   $("#nationality").focusout(function() {
+      check_nationality();
+    });
+   $("#status").focusout(function() {
+      check_status();
+    });
 
-  var error_customer = false;
-  var error_telephone = false;
-  var error_amount = false; 
-  var error_tax = false;
-  var error_description = false;
-  
-   $("#customer").focusout(function() {
-      check_customer();
-    });
-   $("#telephone").focusout(function() {
-      check_telephone();
-    });   
-   $("#amount").focusout(function() {
-      check_amount();
-    });
-   $("#tax").focusout(function() {
-      check_tax();
-    });
+    
+   function check_fullname() {
+        
+    var fullname_length = $("#fullname").val().length;
+    
+    if( $.trim( $('#fullname').val() ) == '' ){
+      $("#fullname_error_message").html("Input is blank!");
+      $("#fullname_error_message").show();
+      $("#fullname").addClass("is-invalid");
+      }else if(fullname_length < 5 || fullname_length > 50) {
+      $("#fullname_error_message").html("Should be between 5-30 characters");
+      $("#fullname_error_message").show();
+      $("#fullname").addClass("is-invalid");
+      }else{
+      $("#fullname_error_message").hide();
+      $("#fullname").removeClass("is-invalid");
+    }
+  }
+   function check_email() {
+    
+    var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+    var email_length = $("#email").val().length;
+    
+    if( $.trim( $('#email').val() ) == '' ){
+      $("#email_error_message").html("Input is blank!");
+      $("#email_error_message").show();
+      error_email = true;
+      $("#email").addClass("is-invalid");
+      }else if(!(pattern.test($("#email").val()))) {
+      $("#email_error_message").html("Invalid email address");
+      error_email = true;
+      $("#email").addClass("is-invalid");
+      $("#email_error_message").show();
+      error_email = true;
+      } else {
+      $("#email_error_message").hide();
+      $("#email").removeClass("is-invalid");
+      }  
+  }
+   function check_address() {
+        
+    var address_length = $("#address").val().length;
+    
+    if( $.trim( $('#address').val() ) == '' ){
+      $("#address_error_message").html("Input is blank!");
+      $("#address_error_message").show();
+      $("#address").addClass("is-invalid");
+      }else if(address_length < 5 || address_length > 80) {
+      $("#address_error_message").html("Should be between 5-80 characters");
+      $("#address_error_message").show();
+      $("#address").addClass("is-invalid");
+      }else{
+      $("#address_error_message").hide();
+      $("#address").removeClass("is-invalid");
+    }
+  }
+   function check_birth_date() {     
+    
+    if( $.trim( $('#birth_date').val() ) == '' ){
+      $("#birth_date_error_message").html("Input is blank!");
+      $("#birth_date_error_message").show();
+      $("#birth_date").addClass("is-invalid");
+      }else{
+      $("#birth_date_error_message").hide();
+      $("#birth_date").removeClass("is-invalid");
+    }
+  }
+   function check_birth_place() {
+        
+    var birth_place_length = $("#birth_place").val().length;
+    
+    if( $.trim( $('#birth_place').val() ) == '' ){
+      $("#birth_place_error_message").html("Input is blank!");
+      $("#birth_place_error_message").show();
+      $("#birth_place").addClass("is-invalid");
+      }else if(birth_place_length < 5 || birth_place_length > 80) {
+      $("#birth_place_error_message").html("Should be between 5-80 characters");
+      $("#birth_place_error_message").show();
+      $("#birth_place").addClass("is-invalid");
+      }else{
+      $("#birth_place_error_message").hide();
+      $("#birth_place").removeClass("is-invalid");
+    }
+  }
+   function check_nationality() {     
+    
+    if( $.trim( $('#nationality').val() ) == '' ){
+      $("#nationality_error_message").html("Input is blank!");
+      $("#nationality_error_message").show();
+      $("#nationality").addClass("is-invalid");
+      }else{
+      $("#nationality_error_message").hide();
+      $("#nationality").removeClass("is-invalid");
+    }
+  }
+   function check_status() {     
+    
+    if( $.trim( $('#status').val() ) == '' ){
+      $("#status_date_error_message").html("Input is blank!");
+      $("#status_date_error_message").show();
+      $("#status").addClass("is-invalid");
+      }else{
+      $("#status_date_error_message").hide();
+      $("#status").removeClass("is-invalid");
+    }
+  }
 
-   $("#description").focusout(function() {
-      check_description();
-    });
-    
-   function check_customer() {
-    
-    var customer_length = $("#customer").val().length;
-    
-    if( $.trim( $('#customer').val() ) == '' ){
-      $("#customer_error_message").html("Input is blank!");
-      $("#customer_error_message").show();
-      error_customer = true;
-      customer.style.border = "1px solid red";
-      
-      }else if(customer_length < 5 || customer_length > 30) {
-      $("#customer_error_message").html("Should be between 5-30 characters");
-      $("#customer_error_message").show();
-      error_customer = true;
-      customer.style.border = "1px solid red";
-      }else{
-      $("#customer_error_message").hide();
-      customer.style.border = "1px solid #ccc";
-    }
-  
-  }
-   function check_telephone() {
-    
-    var telephone_length = $("#telephone").val().length;
-    
-    if( $.trim( $('#telephone').val() ) == '' ){
-      $("#telephone_error_message").html("Input is blank!");
-      $("#telephone_error_message").show();
-      error_telephone = true;
-      telephone.style.border = "1px solid red";
-      }else if(telephone_length < 10) {
-      $("#telephone_error_message").html("Telephone number should be 10 digit number.");
-      $("#telephone_error_message").show();
-      error_telephone = true;
-      telephone.style.border = "1px solid red";
-      }else{
-      $("#telephone_error_message").hide();
-      telephone.style.border = "1px solid #ccc";
-    }
-  
-  }
-  function check_amount() {
-    if($.trim( $('#amount').val() ) == ''){
-      $("#amount_error_message").html("Please provide an amount!");
-      $("#amount_error_message").show();
-      amount.style.border = "1px solid red";
-      error_amount = true;
-      }else{
-      $("#amount_error_message").hide();
-      amount.style.border = "1px solid #ccc";
-    }
-  }
-  function check_tax() {
-    if($.trim( $('#tax').val() ) == ''){
-      $("#tax_error_message").html("Please provide tax!");
-      $("#tax_error_message").show();
-      tax.style.border = "1px solid red";
-      error_tax = true;
-      }else{
-      $("#tax_error_message").hide();
-      tax.style.border = "1px solid #ccc";
-    }
-  }
-     function check_description() {
-    
-    var description_length = $("#description").val().length;
-    
-    if( $.trim( $('#description').val() ) == '' ){
-      $("#description_error_message").html("Input is blank!");
-      $("#description_error_message").show();
-      error_description = true;
-      description.style.border = "1px solid red";
-      
-      }else if(description_length < 5 || description_length > 140) {
-      $("#description_error_message").html("Should be between 5-140 characters");
-      $("#description_error_message").show();
-      error_description = true;
-      description.style.border = "1px solid red";
-      }else{
-      $("#description_error_message").hide();
-      description.style.border = "1px solid #ccc";
-    }
-  
-  }
   
       $('#btnSavePersonal').click(function(){
         /*error_customer = false;
