@@ -8,13 +8,11 @@
 		$_POST['fullname'],
 		$_POST['email'],
 		$_POST['address'],
-		$_POST['birthDate'],
-		$_POST['birthPlace'],
+		$_POST['birth_date'],
+		$_POST['birth_place'],
 		$_POST['gender'],
 		$_POST['nationality'],
 		$_POST['status'],
 				);
 	echo $obj->addEmployee($data);
-	//print_r($_POST);
-	//print_r($data);
  ?>

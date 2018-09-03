@@ -35,7 +35,7 @@
                           <h5>Personal Information</h5>
                       </div>
                       <div class="card-body">
-                        <div id="alert_error_message2" class="alert alert-danger" role="alert">
+                        <div id="alert_error_message" class="alert alert-danger collapse" role="alert">
                           <i class="fa fa-exclamation-triangle"></i>
                           <strong>Alert!</strong> Please check in on some of the fields below.
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -94,8 +94,8 @@
                         </div>
                         <hr>                
                         <div align="center">
-                          <button id="btnCancelPersonal" class="btn btn-danger">Cancel</button>
-                          <button id="btnSavePersonal" class="btn btn-primary">Save</button>
+                          <button type="button" id="btnCancel" class="btn btn-danger">Cancel</button>
+                          <button type="button" id="btnSavePersonal" class="btn btn-primary">Save</button>
                         </div>
                       </div>
                     </div>
@@ -144,10 +144,12 @@ $(function() {
     if( $.trim( $('#fullname').val() ) == '' ){
       $("#fullname_error_message").html("Input is blank!");
       $("#fullname_error_message").show();
+      error_fullname = true;
       $("#fullname").addClass("is-invalid");
       }else if(fullname_length < 5 || fullname_length > 50) {
       $("#fullname_error_message").html("Should be between 5-30 characters");
       $("#fullname_error_message").show();
+      error_fullname = true;
       $("#fullname").addClass("is-invalid");
       }else{
       $("#fullname_error_message").hide();
@@ -166,10 +168,9 @@ $(function() {
       $("#email").addClass("is-invalid");
       }else if(!(pattern.test($("#email").val()))) {
       $("#email_error_message").html("Invalid email address");
-      error_email = true;
-      $("#email").addClass("is-invalid");
       $("#email_error_message").show();
       error_email = true;
+      $("#email").addClass("is-invalid");
       } else {
       $("#email_error_message").hide();
       $("#email").removeClass("is-invalid");
@@ -182,10 +183,12 @@ $(function() {
     if( $.trim( $('#address').val() ) == '' ){
       $("#address_error_message").html("Input is blank!");
       $("#address_error_message").show();
+      error_address = true;
       $("#address").addClass("is-invalid");
       }else if(address_length < 5 || address_length > 80) {
       $("#address_error_message").html("Should be between 5-80 characters");
       $("#address_error_message").show();
+      error_address = true;
       $("#address").addClass("is-invalid");
       }else{
       $("#address_error_message").hide();
@@ -197,6 +200,7 @@ $(function() {
     if( $.trim( $('#birth_date').val() ) == '' ){
       $("#birth_date_error_message").html("Input is blank!");
       $("#birth_date_error_message").show();
+      error_birth_date = true;
       $("#birth_date").addClass("is-invalid");
       }else{
       $("#birth_date_error_message").hide();
@@ -210,10 +214,12 @@ $(function() {
     if( $.trim( $('#birth_place').val() ) == '' ){
       $("#birth_place_error_message").html("Input is blank!");
       $("#birth_place_error_message").show();
+      error_birth_place == true;
       $("#birth_place").addClass("is-invalid");
       }else if(birth_place_length < 5 || birth_place_length > 80) {
       $("#birth_place_error_message").html("Should be between 5-80 characters");
       $("#birth_place_error_message").show();
+      error_birth_place == true;
       $("#birth_place").addClass("is-invalid");
       }else{
       $("#birth_place_error_message").hide();
@@ -225,6 +231,7 @@ $(function() {
     if( $.trim( $('#nationality').val() ) == '' ){
       $("#nationality_error_message").html("Input is blank!");
       $("#nationality_error_message").show();
+      error_nationality ==true;
       $("#nationality").addClass("is-invalid");
       }else{
       $("#nationality_error_message").hide();
@@ -234,31 +241,38 @@ $(function() {
    function check_status() {     
     
     if( $.trim( $('#status').val() ) == '' ){
-      $("#status_date_error_message").html("Input is blank!");
-      $("#status_date_error_message").show();
+      $("#status_error_message").html("Input is blank!");
+      $("#status_error_message").show();
+      error_status = true;
       $("#status").addClass("is-invalid");
       }else{
-      $("#status_date_error_message").hide();
+      $("#status_error_message").hide();
       $("#status").removeClass("is-invalid");
     }
   }
 
   
       $('#btnSavePersonal').click(function(){
-        /*error_customer = false;
-        error_telephone = false;
-        error_amount = false;
-        error_tax = false;
-        error_description = false;
+        error_fullname = false;
+        error_email = false;
+        error_address = false;
+        error_birth_date = false;
+        error_birth_place = false;
+        error_nationality = false;
+        error_status = false;
 
-        check_customer();
-        check_telephone();
-        check_amount();
-        check_tax();
-        check_description(); */
+        check_fullname();
+        check_email();
+        check_address();
+        check_birth_date();
+        check_birth_place();
+        check_nationality();
+        check_status();
 
-      //if(error_customer == false && error_telephone == false && error_amount == false && error_tax == false && error_description == false) {         
-          //$("#alert_error_message").hide();
+
+
+      if(error_fullname == false && error_email == false && error_address == false && error_birth_date == false && error_birth_place == false && error_nationality == false && error_status == false) {       
+          $("#alert_error_message").hide();
           data=$('#frmPersonal').serialize();
           $.ajax({
             type:"POST",
@@ -275,31 +289,48 @@ $(function() {
             }
           });
           return false; 
-        //}else{
-          //$("#alert_error_message").show();
-          //return false; 
-        //}
+        }else{
+
+          $("#alert_error_message").show();
+
+          return false; 
+        }
     });
       $('#btnCancel').click(function(){
-        alertify.confirm('Cancel Invoice','Do you want to cancel the new invoice?', function(){
-          $('#frmSimpleInvoice')[0].reset(); 
-          alertify.error('Canceled!');
+        alertify.confirm('Cancel new employee','Do you want to cancel the new employee?', function(){
+
           $("#alert_error_message").hide();
-          customer.style.border = "1px solid #ccc";
-          $("#customer_error_message").hide();
-          telephone.style.border = "1px solid #ccc";
-          $("#telephone_error_message").hide();
-          amount.style.border = "1px solid #ccc";
-          $("#amount_error_message").hide();
-          tax.style.border = "1px solid #ccc";
-          $("#tax_error_message").hide();
-          description.style.border = "1px solid #ccc";
-          $("#description_error_message").hide();
+
+          $('#frmPersonal')[0].reset(); 
+
+          $("#fullname_error_message").hide();
+          $("#fullname").removeClass("is-invalid");
+
+          $("#email_error_message").hide();
+          $("#email").removeClass("is-invalid");
+
+          $("#address_error_message").hide();
+          $("#address").removeClass("is-invalid");
+
+          $("#birth_date_error_message").hide();
+          $("#birth_date").removeClass("is-invalid");
+
+          $("#birth_place_error_message").hide();
+          $("#birth_place").removeClass("is-invalid");
+          
+          $("#nationality_error_message").hide();
+          $("#nationality").removeClass("is-invalid");
+          
+          $("#status_error_message").hide();
+          $("#status").removeClass("is-invalid");
+
+
         }, function(){ 
           alertify.success("Operation Canceled!");
         });
     });
 });
+
     $(document).ready(function(){
     $("#alert_error_message").hide();
     $('#characterLeft').text('140 characters left');
