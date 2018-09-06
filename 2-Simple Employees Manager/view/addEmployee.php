@@ -78,7 +78,7 @@
                           </div>
                           <div class="form-group col-md-12">
                             <strong>Nationality <i class="text-danger">*</i></strong>
-                            <input type="text" class="form-control" id="nationality" name="nationality" placeholder="Nationality">
+                            <input type="text" class="form-control" id="nationality" name="nationality" maxlength="20"placeholder="Nationality">
                             <div id="nationality_error_message" class="text-danger"></div>
                           </div>
                           <div class="form-group col-md-12">
@@ -279,9 +279,8 @@ $(function() {
             data:data,
             url:"../process/employees/addEmployee.php",
             success:function(r){
-              alert(r);
             if(r==1){            
-              //$('#frmPersonal')[0].reset();
+              $('#frmPersonal')[0].reset();
               alertify.success("New employee successfuly added!");
           }else{
               alertify.error("Could not add the new employee.");
@@ -333,62 +332,11 @@ $(function() {
 
     $(document).ready(function(){
     $("#alert_error_message").hide();
-    $('#characterLeft').text('140 characters left');
-    $('#description').keydown(function () {
-        var max = 140;
-        var len = $(this).val().length;
-        if (len >= max) {
-            $('#characterLeft').text('You have reached the limit');
-            $('#characterLeft').addClass('red');
-            $('#btnSubmit').addClass('disabled');            
-        } 
-        else {
-            var ch = max - len;
-            $('#characterLeft').text(ch + ' characters left');
-            $('#btnSubmit').removeClass('disabled');
-            $('#characterLeft').removeClass('red');            
-        }
-    }); 
+
+
 
     });
 
 
-$(phoneFormatter);
-
-function verifyAmountInput() {
-var amount = document.getElementById("amount");
-
-var invalidChars = [
-  "-",
-  "+",
-  "e",
-];
-
-amount.addEventListener("keydown", function(e) {
-  if (invalidChars.includes(e.key)) {
-    e.preventDefault();
-  }
-});
-};
-
-$(verifyAmountInput);
-
-function verifyTaxInput() {
-var tax = document.getElementById("tax");
-
-var invalidChars = [
-  "-",
-  "+",
-  "e",
-];
-
-tax.addEventListener("keydown", function(e) {
-  if (invalidChars.includes(e.key)) {
-    e.preventDefault();
-  }
-});
-};
-
-$(verifyTaxInput);
 
 </script>

@@ -53,7 +53,7 @@
         <div class="modal-header">
           <h5 id="caveat-with-anchors">Employee Information</h5>
           <span style="padding-left:95px;"></span>
-            <form action="http://192.168.0.106:8080/invoices/2-Simple Employees Manager/view/editEmployee.php" method="get">
+            <form action="http://192.168.0.106:8080/invoices/2-Simple Employees Manager/view/updateEmployee.php" method="get">
               <input type="text"  hidden="" id="idEmployee" name="idEmployee">
               <button class="btn btn-secondary btn-xs" type="submit"><i class="fa fa-pencil-square-o"></i> Edit</button>        
             </form><br>

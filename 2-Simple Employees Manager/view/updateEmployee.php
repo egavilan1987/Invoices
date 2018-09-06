@@ -1,3 +1,6 @@
+  <?php require_once "menu.php"; 
+    $idEmployee = $_GET['idEmployee'];
+    ?>
 <html>
  <head>
   <title>Create New Invoice</title>
@@ -90,7 +93,7 @@
                           </div>
                           <div class="form-group col-md-12">
                             <strong>Marital Status *</strong><br>
-                            <select name="status" id="status" class="form-control">
+                            <select id="status" name="status" class="form-control">
                               <option value="" hidden>Marital Status</option>
                               <option>Single</option>
                               <option>Married</option>
@@ -125,17 +128,17 @@
                         <div class="row">
                           <div class="form-group col-md-12">
                             <strong>Home Address *</strong>
-                            <textarea class="form-control" id="address" name="address" placeholder="Address" rows="2"></textarea>
+                            <textarea class="form-control" id="permanent_address" name="permanent_address" placeholder="Permanet Address" rows="2"></textarea>
                             <div id="home_address_error_message" style="color:red"></div>
                           </div>
                           <div class="form-group col-md-12">
                             <strong>Home Phone *</strong>
-                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
+                            <input type="text" class="form-control" id="home_phone" name="home_phone" placeholder="Home Phone">
                             <div id="home_phone_error_message" style="color:red"></div>
                           </div>
                           <div class="form-group col-md-12">
                             <strong>Mobile Phone *</strong>
-                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
+                            <input type="text" class="form-control" id="mobile_phone" name="mobile_phone" placeholder="Mobile Phone">
                             <div id="mobile_error_message" style="color:red"></div>
                           </div>                         
                         </div>
@@ -208,41 +211,37 @@
                   <div class="card border-primary mb-3">
                     <div class="card">
                       <div class="card-header text-white bg-primary">
-                          <h5>Professional Information</h5>
+                          <h5>Company Details</h5>
                       </div>
                         <div class="card-body">
                           <p style="color:red"><i>* Required</i></p>
                         <div class="row">
                           <div class="form-group col-md-12">
-                            <strong>Profession *</strong>
-                            <input type="text" class="form-control" id="contactName" name="contactName" placeholder="Profession">
-                            <div id="profession_error_message" style="color:red"></div>
+                            <strong>Department *</strong>
+                            <input type="text" class="form-control" id="department" name="department" placeholder="Department">
+                            <div id="department_error_message" style="color:red"></div>
                           </div>
                           <div class="form-group col-md-12">
-                            <strong>Experience(years) *</strong>
-                            <input type="text" class="form-control" id="experience" name="experience" placeholder="Profession">
-                            <div id="experience_error_message" style="color:red"></div>
+                            <strong>Salary *</strong>
+                            <input type="text" class="form-control" id="salary" name="salary" placeholder="Salary">
+                            <div id="salary_error_message" style="color:red"></div>
                           </div>
                           <div class="form-group col-md-12">
-                            <strong>School *</strong>
-                            <input type="text" class="form-control" id="school" name="school" placeholder="Profession">
-                            <div id="school_error_message" style="color:red"></div>
+                            <strong>Date of Hired *</strong>
+                            <input type="date" class="form-control" id="hired_date" name="hired_date" placeholder="Date of Hired">
+                            <div id="hired_date_error_message" style="color:red"></div>
                           </div>
+                          <div class="form-group col-md-12">
+                            <strong>Comment *</strong>
+                            <textarea class="form-control" id="comment" name="comment" placeholder="Comment" maxlength="200" rows="7"></textarea>
+                            <div id="comment_error_message" style="color:red"></div>
+                          </div>
+
                           <div class="form-group col-md-12">
                             <strong>Department *</strong>
                             <input type="text" class="form-control" id="department" name="department" placeholder="Profession">
                             <div id="add_department_error_message" style="color:red"></div>
-                          </div>
-                          <div class="form-group col-md-12">
-                            <strong>Hired Department *</strong>
-                            <input type="text" class="form-control" id="hired_department" name="hired_department" placeholder="Profession">
-                            <div id="hired_department_error_message" style="color:red"></div>
-                          </div>
-                          <div class="form-group col-md-12">
-                            <strong>Hiring Date *</strong>
-                              <input type="date" class="form-control" id="hiringDate" name="hiringDate" placeholder="Hiring  Date">
-                              <div id="hired_date_error_message" style="color:red"></div>
-                          </div>                          
+                          </div>                       
                         </div>
                         <hr>                
                         <div align="center">
@@ -435,62 +434,56 @@ $(function() {
 });
     $(document).ready(function(){
     $("#alert_error_message").hide();
-    $('#characterLeft').text('140 characters left');
-    $('#description').keydown(function () {
-        var max = 140;
-        var len = $(this).val().length;
-        if (len >= max) {
-            $('#characterLeft').text('You have reached the limit');
-            $('#characterLeft').addClass('red');
-            $('#btnSubmit').addClass('disabled');            
-        } 
-        else {
-            var ch = max - len;
-            $('#characterLeft').text(ch + ' characters left');
-            $('#btnSubmit').removeClass('disabled');
-            $('#characterLeft').removeClass('red');            
+//alert();
+    var idEmployee ="<?php echo $idEmployee; ?>";
+    addEmployeeData(idEmployee);
+
+function addEmployeeData(idEmployee){
+      $.ajax({
+        type:"POST",
+        data:"idEmployee=" + idEmployee,
+        url:"../process/employees/getEmployeeData.php",
+        success:function(r){
+          //alert(r);
+          data=jQuery.parseJSON(r); 
+          //$('#idEmployee').val(data['id_employee']);
+          //$('#idPrintIdEmployee').val(data['id_employee']);
+          //$('#viewEmployeeId').text(data['id_employee']);
+
+          //$('#viewImage').prepend('<img class="img-thumbnail" id="imgp" src="' + data['image'] + '"  width="140" height="140"/>');
+          $('#fullname').val(data['fullName']);
+          $('#email').val(data['email']);
+          $('#address').val(data['localAddess']);
+          $('#birthDate').val(data['dateBirth']);
+          $('#birthPlace').val(data['birthPlace']);
+          $('#gender').val(data['gender']);
+          $('#status').val(data['maritalStatus']);
+          $('#nationality').val(data['nationality']);
+
+          $('#permanent_address').val(data['permanentAddress']);  
+          $('#home_phone').val(data['telephone']);
+          $('#mobile_phone').val(data['cellphone']);
+
+          $('#contactName').val(data['contactFullname']);     
+          $('#contactAddress').val(data['contactAddress']);
+          $('#contactPhone').val(data['contactTelephone']);
+          $('#contactEmail').val(data['contactEmail']);
+          $('#relation').val(data['contactRelation']);
+
+          $('#department').text(data['department']);
+          $('#experience').text(data['salary']);
+          $('#school').text(data['status']);
+          $('#department').text(data['comments']);
+          $('#hired_department').text(data['hiredDay']); 
+
+
+          
+  
         }
-    }); 
+      });
+    }
+
 
     });
-
-
-$(phoneFormatter);
-
-function verifyAmountInput() {
-var amount = document.getElementById("amount");
-
-var invalidChars = [
-  "-",
-  "+",
-  "e",
-];
-
-amount.addEventListener("keydown", function(e) {
-  if (invalidChars.includes(e.key)) {
-    e.preventDefault();
-  }
-});
-};
-
-$(verifyAmountInput);
-
-function verifyTaxInput() {
-var tax = document.getElementById("tax");
-
-var invalidChars = [
-  "-",
-  "+",
-  "e",
-];
-
-tax.addEventListener("keydown", function(e) {
-  if (invalidChars.includes(e.key)) {
-    e.preventDefault();
-  }
-});
-};
-
-$(verifyTaxInput);
 
 </script>
