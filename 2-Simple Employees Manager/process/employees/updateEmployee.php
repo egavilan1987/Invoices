@@ -5,6 +5,7 @@
 	$obj= new Employees;
 
 	$data=array(
+		$_POST['idEmployee'],
 		$_POST['fullname'],
 		$_POST['email'],
 		$_POST['address'],
@@ -12,7 +13,7 @@
 		$_POST['birth_address'],
 		$_POST['gender'],
 		$_POST['nationality'],
-		$_POST['status'],
+		$_POST['marital_status'],
 				);
-	echo $obj->addEmployee($data);
+	echo $obj->updateEmployee($data);
  ?>

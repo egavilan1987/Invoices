@@ -1,6 +1,6 @@
 <html>
  <head>
-  <title>Create New Invoice</title>
+  <title>Register New Employee</title>
   <?php require_once "menu.php"; ?>
  </head>
  <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -29,8 +29,7 @@
               <form id="frmPersonal">
                 <div class="col-md-12">
                   <br>
-                  <div class="card border-primary mb-3">
-                    <div class="card">
+                    <div class="card border-primary">
                       <div class="card-header text-white bg-primary">
                           <h5>Personal Information</h5>
                       </div>
@@ -56,7 +55,7 @@
                           </div>
                           <div class="form-group col-md-12">
                             <strong>Local Address <i class="text-danger">*</i></strong>                                
-                            <textarea class="form-control" id="address" name="address" maxlength="80" placeholder="Address" rows="2"></textarea>
+                            <textarea class="form-control" id="address" name="address" maxlength="80" placeholder="Local Address" rows="2"></textarea>
                             <div id="address_error_message" class="text-danger"></div>
                           </div>
                           <div class="form-group col-md-12">
@@ -65,9 +64,9 @@
                             <div id="birth_date_error_message" class="text-danger"></div>
                           </div>
                           <div class="form-group col-md-12">
-                            <strong>Place of Birth </strong>                                
-                            <textarea class="form-control" id="birth_place" name="birth_place" maxlength="80 placeholder="Place of Birth" rows="2"></textarea>
-                            <div id="birth_place_error_message" class="text-danger"></div>
+                            <strong>Place of Birth <i class="text-danger">*</i></strong>                                
+                            <textarea class="form-control" id="birth_address" name="birth_address" maxlength="80" placeholder="Place of Birth" rows="2"></textarea>
+                            <div id="birth_address_error_message" class="text-danger"></div>
                           </div>
                           <div class="form-group col-md-12">
                             <strong>Gender <i class="text-danger">*</i></strong><br>
@@ -99,7 +98,6 @@
                         </div>
                       </div>
                     </div>
-                  </div>
                 </div>
               </form>
             </div>
@@ -120,14 +118,17 @@ $(function() {
    $("#email").focusout(function() {
       check_email();
     }); 
+   $("#birth_address").focusout(function() {
+      check_birth_address();
+    });
    $("#address").focusout(function() {
       check_address();
     });
    $("#birth_date").focusout(function() {
       check_birth_date();
     });
-   $("#birth_place").focusout(function() {
-      check_birth_place();
+   $("#birth_address").focusout(function() {
+      check_birth_address();
     });
    $("#nationality").focusout(function() {
       check_nationality();
@@ -176,6 +177,25 @@ $(function() {
       $("#email").removeClass("is-invalid");
       }  
   }
+   function check_birth_address() {
+        
+    var address_length = $("#birth_address").val().length;
+    
+    if( $.trim( $('#birth_address').val() ) == '' ){
+      $("#birth_address_error_message").html("Input is blank!");
+      $("#birth_address_error_message").show();
+      error_address = true;
+      $("#birth_address").addClass("is-invalid");
+      }else if(address_length < 5 || address_length > 80) {
+      $("#birth_address_error_message").html("Should be between 5-80 characters");
+      $("#birth_address_error_message").show();
+      error_address = true;
+      $("#birth_address").addClass("is-invalid");
+      }else{
+      $("#birth_address_error_message").hide();
+      $("#birth_address").removeClass("is-invalid");
+    }
+  }
    function check_address() {
         
     var address_length = $("#address").val().length;
@@ -207,31 +227,12 @@ $(function() {
       $("#birth_date").removeClass("is-invalid");
     }
   }
-   function check_birth_place() {
-        
-    var birth_place_length = $("#birth_place").val().length;
-    
-    if( $.trim( $('#birth_place').val() ) == '' ){
-      $("#birth_place_error_message").html("Input is blank!");
-      $("#birth_place_error_message").show();
-      error_birth_place == true;
-      $("#birth_place").addClass("is-invalid");
-      }else if(birth_place_length < 5 || birth_place_length > 80) {
-      $("#birth_place_error_message").html("Should be between 5-80 characters");
-      $("#birth_place_error_message").show();
-      error_birth_place == true;
-      $("#birth_place").addClass("is-invalid");
-      }else{
-      $("#birth_place_error_message").hide();
-      $("#birth_place").removeClass("is-invalid");
-    }
-  }
    function check_nationality() {     
     
     if( $.trim( $('#nationality').val() ) == '' ){
       $("#nationality_error_message").html("Input is blank!");
       $("#nationality_error_message").show();
-      error_nationality ==true;
+      error_nationality = true;
       $("#nationality").addClass("is-invalid");
       }else{
       $("#nationality_error_message").hide();
@@ -257,7 +258,7 @@ $(function() {
         error_email = false;
         error_address = false;
         error_birth_date = false;
-        error_birth_place = false;
+        error_birth_address = false;
         error_nationality = false;
         error_status = false;
 
@@ -265,13 +266,13 @@ $(function() {
         check_email();
         check_address();
         check_birth_date();
-        check_birth_place();
+        check_birth_address();
         check_nationality();
         check_status();
 
 
 
-      if(error_fullname == false && error_email == false && error_address == false && error_birth_date == false && error_birth_place == false && error_nationality == false && error_status == false) {       
+      if(error_fullname == false && error_email == false && error_address == false && error_birth_date == false && error_birth_address == false && error_nationality == false && error_status == false) {       
           $("#alert_error_message").hide();
           data=$('#frmPersonal').serialize();
           $.ajax({
@@ -314,8 +315,8 @@ $(function() {
           $("#birth_date_error_message").hide();
           $("#birth_date").removeClass("is-invalid");
 
-          $("#birth_place_error_message").hide();
-          $("#birth_place").removeClass("is-invalid");
+          $("#birth_address_error_message").hide();
+          $("#birth_address").removeClass("is-invalid");
           
           $("#nationality_error_message").hide();
           $("#nationality").removeClass("is-invalid");

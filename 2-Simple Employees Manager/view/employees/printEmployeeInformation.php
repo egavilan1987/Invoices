@@ -27,7 +27,7 @@ $query = mysqli_query($connection,"SELECT id_employee,
                 salary,
                 employee_status,
                 comments,
-                hired_day,
+                hired_date,
                 resume_path,
                 created_date,
                 updated_date
@@ -149,37 +149,37 @@ $pdf->Ln(5);
 $pdf->Cell(190	,5,'Emergency Contact Information',0,1,'C');
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(35	,5,'',0,0,'R');
-$pdf->Cell(60	,5,'E-mail:',0,0);
+$pdf->Cell(60	,5,'Contact Name:',0,0);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(60	,5,$data['email'],0,0);
+$pdf->Cell(60	,5,$data['contact_fullname'],0,0);
 $pdf->Cell(35	,5,'',0,1,'R');
 
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(35	,5,'',0,0,'R');
-$pdf->Cell(60	,5,'Local Address:',0,0);
+$pdf->Cell(60	,5,'Contact Address:',0,0);
 $pdf->SetFont('Arial','',12);
-$pdf->MultiCell(60	,5,$data['local_address'],0,'L');
+$pdf->MultiCell(60	,5,$data['contact_address'],0,'L');
 $pdf->Cell(35	,5,'',0,1,'R');
 
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(35	,5,'',0,0,'R');
-$pdf->Cell(60	,5,'Date of Birth:',0,0);
+$pdf->Cell(60	,5,'Contact Phone No.:',0,0);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(60	,5,$data['date_birth'],0,0);
+$pdf->Cell(60	,5,$data['contact_telephone'],0,0);
 $pdf->Cell(35	,5,'',0,1,'R');
 
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(35	,5,'',0,0,'R');
-$pdf->Cell(60	,5,'Gender:',0,0);
+$pdf->Cell(60	,5,'Contact E-mail:',0,0);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(60	,5,$data['gender'],0,0);
+$pdf->Cell(60	,5,$data['contact_email'],0,0);
 $pdf->Cell(35	,5,'',0,1,'R');
 
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(35	,5,'',0,0,'R');
-$pdf->Cell(60	,5,'Nationality:',0,0);
+$pdf->Cell(60	,5,'Relation:',0,0);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(60	,5,$data['nationality'],0,0);
+$pdf->Cell(60	,5,$data['contact_relation'],0,0);
 $pdf->Cell(35	,5,'',0,1,'R');
 
 
@@ -195,39 +195,42 @@ $pdf->Cell(35	,5,'',0,1,'R');
 
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(35	,5,'',0,0,'R');
-$pdf->Cell(60	,5,'E-mail:',0,0);
+$pdf->Cell(60	,5,'Department:',0,0);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(60	,5,$data['email'],0,0);
+$pdf->Cell(60	,5,$data['department'],0,0);
 $pdf->Cell(35	,5,'',0,1,'R');
 
 
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(35	,5,'',0,0,'R');
-$pdf->Cell(60	,5,'Local Address:',0,0);
+$pdf->Cell(60	,5,'Salary:',0,0);
 $pdf->SetFont('Arial','',12);
-$pdf->MultiCell(60	,5,$data['local_address'],0,'L');
+$pdf->MultiCell(60	,5,$data['salary'],0,'L');
 $pdf->Cell(35	,5,'',0,1,'R');
 
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(35	,5,'',0,0,'R');
-$pdf->Cell(60	,5,'Date of Birth:',0,0);
+$pdf->Cell(60	,5,'Date of Hired:',0,0);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(60	,5,$data['date_birth'],0,0);
+$pdf->Cell(60	,5,$data['hired_date'],0,0);
 $pdf->Cell(35	,5,'',0,1,'R');
 
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(35	,5,'',0,0,'R');
-$pdf->Cell(60	,5,'Gender:',0,0);
+$pdf->Cell(60	,5,'Status:',0,0);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(60	,5,$data['gender'],0,0);
+$pdf->Cell(60	,5,$data['employee_status'],0,0);
 $pdf->Cell(35	,5,'',0,1,'R');
 
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(35	,5,'',0,0,'R');
-$pdf->Cell(60	,5,'Nationality:',0,0);
+$pdf->Cell(60	,5,'Comment:',0,0);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(60	,5,$data['nationality'],0,0);
+$pdf->MultiCell(60	,5,$data['comments'],0,'L');
 $pdf->Cell(35	,5,'',0,1,'R');
 
 $pdf->Output('I','Employee Details.pdf');
 ?>
+
+
+

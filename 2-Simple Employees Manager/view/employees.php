@@ -172,7 +172,7 @@ function addEmployeeData(idEmployee){
         data:"idEmployee=" + idEmployee,
         url:"../process/employees/getEmployeeData.php",
         success:function(r){
-          //alert(r);
+          
           data=jQuery.parseJSON(r); 
           $('#idEmployee').val(data['id_employee']);
           $('#idPrintIdEmployee').val(data['id_employee']);

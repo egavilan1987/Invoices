@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Simple Invoice</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,6 +25,8 @@
   <!-- Alertify-->
   <link rel="stylesheet" type="text/css" href="../vendor/alertifyjs/css/alertify.css">
   <link rel="stylesheet" type="text/css" href="../vendor/alertifyjs/css/themes/default.css">
+  <!-- Select 2-->
+  <link rel="stylesheet" type="text/css" href="../vendor/select2/css/select2.css">
   <!-- Tab Icon-->
   <link rel="icon" href="../files/EGD.JPG">
 </head>
@@ -106,6 +107,8 @@
     <!-- Datatable plugins-->
     <script src="../vendor/datatable/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatable/dataTables.bootstrap4.min.js"></script>
+    <!-- Select 2-->
+    <script src="../vendor/select2/js/select2.js"></script>
   </div>
 </body>
 </html>
