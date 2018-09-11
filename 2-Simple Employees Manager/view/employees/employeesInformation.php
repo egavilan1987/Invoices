@@ -74,12 +74,17 @@ $Total=0;
 
 
 
-$query=mysqli_query($connect,"SELECT * FROM employees");
+$query=mysqli_query($connect,"SELECT * FROM employees AS emp
+                INNER JOIN departments AS dep
+                ON emp.id_department=dep.id_department");
+
+
+
 while($data=mysqli_fetch_array($query)){
 	$pdf->Cell(20,5,$data['id_employee'],1,0);
 	$pdf->cell(40,5,$data['fullname'],1,0);
-	$pdf->Cell(40,5,$data['department'],1,0);
-	$pdf->Cell(30,5,$data['gender'],1,0);
+	$pdf->Cell(50,5,$data['name_department'],1,0);
+	$pdf->Cell(20,5,$data['gender'],1,0);
 	$pdf->Cell(35,5,$data['nationality'],1,0);
 	$pdf->Cell(25,5,$data['employee_status'],1,1);
 }
@@ -88,4 +93,10 @@ while($data=mysqli_fetch_array($query)){
 $pdf->SetFont('Arial','B',12);
 
 $pdf->Output('I','Employees Information.pdf');
+
+
 ?>
+
+
+
+

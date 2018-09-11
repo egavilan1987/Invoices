@@ -40,7 +40,7 @@
 
 			
 			$sql="UPDATE departments SET name_department='$data[1]',
-						created_date=NOW()
+						updated_date=NOW()
 						WHERE id_department='$data[0]'";
 
 			return mysqli_query($connection,$sql);	

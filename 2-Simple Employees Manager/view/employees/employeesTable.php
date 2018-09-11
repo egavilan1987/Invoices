@@ -6,17 +6,24 @@ require_once "../../classes/connection.php";
       $c=new Connect();
       $connection=$c->connection();
 
-$sql="SELECT id_employee,
-          fullname,
-          email,
-          gender,
-          nationality,
-          marital_status,
-          image,
-          department,
-          employee_status,
-          created_date
-      FROM employees";
+      $sql="SELECT emp.id_employee,
+                emp.fullname,
+                emp.email,
+                emp.gender,
+                emp.nationality,
+                emp.marital_status,
+                emp.image,
+
+                dep.name_department,
+
+                emp.employee_status,
+                emp.created_date
+
+                FROM employees AS emp
+                INNER JOIN departments AS dep
+                ON emp.id_department=dep.id_department";
+
+
 $result=mysqli_query($connection,$sql);
 ?>
 

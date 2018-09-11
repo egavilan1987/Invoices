@@ -5,33 +5,37 @@ $connection=mysqli_connect('localhost','root','');
 mysqli_select_db($connection,'simple_employees');
 
 
-$query = mysqli_query($connection,"SELECT id_employee,
-                fullname,
-                email,
-                local_address,
-                date_birth,
-                birth_place,
-                gender,
-                nationality,
-                marital_status,
-                image,
-                permanent_address,
-                telephone,
-                cellphone,
-                contact_fullname,
-                contact_address,        
-                contact_telephone,
-                contact_email,
-                contact_relation,
-                department,
-                salary,
-                employee_status,
-                comments,
-                hired_date,
-                resume_path,
-                created_date,
-                updated_date
-			      FROM employees WHERE id_employee = '".$_GET['idPrintIdEmployee']."'");
+$query = mysqli_query($connection,"SELECT 
+                emp.id_employee,
+                emp.fullname,
+                emp.email,
+                emp.local_address,
+                emp.date_birth,
+                emp.birth_place,
+                emp.gender,
+                emp.nationality,
+                emp.marital_status,
+                emp.image,
+                emp.permanent_address,
+                emp.telephone,
+                emp.cellphone,
+                emp.contact_fullname,
+                emp.contact_address,        
+                emp.contact_telephone,
+                emp.contact_email,
+                emp.contact_relation,
+                dep.name_department,
+                emp.salary,
+                emp.employee_status,
+                emp.comments,
+                emp.hired_date,
+                emp.resume_path,
+                emp.created_date,
+                emp.updated_date
+                FROM employees AS emp
+                INNER JOIN departments AS dep
+                ON emp.id_department=dep.id_department
+        WHERE emp.id_employee = '".$_GET['idPrintIdEmployee']."'");
 
 $data=mysqli_fetch_array($query);
 
@@ -197,7 +201,7 @@ $pdf->SetFont('Arial','B',12);
 $pdf->Cell(35	,5,'',0,0,'R');
 $pdf->Cell(60	,5,'Department:',0,0);
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(60	,5,$data['department'],0,0);
+$pdf->Cell(60	,5,$data['name_department'],0,0);
 $pdf->Cell(35	,5,'',0,1,'R');
 
 

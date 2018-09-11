@@ -45,14 +45,14 @@
             </div>
           <div class="col-sm-8">
           <ul class="nav nav-tabs">
-            <li><a class="nav-item nav-link " data-toggle="tab" href="#personal">Personal Inform</a></li>
+            <li><a class="nav-item nav-link active" data-toggle="tab" href="#personal">Personal Inform</a></li>
             <li><a class="nav-item nav-link" data-toggle="tab" href="#contact">Contact Information</a></li>
             <li><a class="nav-item nav-link"  data-toggle="tab" href="#emergency">Emergency Information</a></li>
-            <li><a class="nav-item nav-link active" data-toggle="tab" href="#professional">Professional Information</a></li>
+            <li><a class="nav-item nav-link" data-toggle="tab" href="#professional">Professional Information</a></li>
           </ul>
 <!--1-Personal Information-------->              
           <div class="tab-content">
-            <div class="tab-pane" id="personal">
+            <div class="tab-pane active" id="personal">
               <form id="frmUpdatePersonal">
                 <div class="col-md-12">
                   <br>
@@ -232,7 +232,7 @@
               </form>
             </div>
 <!--4-Professional Information-------->
-              <div class="tab-pane active" id="professional">
+              <div class="tab-pane" id="professional">
               <form id="frmCompany">
                 <div class="col-md-12">
                   <br>
@@ -255,7 +255,8 @@
 
 
                         <div class="form-group col-md-12">
-                          <strong>Department <i class="text-danger">*</i></strong><br> 
+                          <strong>Department </strong><br> 
+                          <input type="text" class="form-control" id="department" name="department" placeholder="Department" readonly>
                           
 
                           <select id="addDepartment" name="addDepartment"  style="width: 100%" class="form-control col-md-12 selectpicker" >
@@ -278,18 +279,6 @@
                           </select>
                         </div>
 
-
-
-
-
-
-
-
-                          <div class="form-group col-md-12">
-                            <strong>Department <i class="text-danger">*</i></strong>
-                            <input type="text" class="form-control" id="department" name="department" placeholder="Department">
-                            <div id="department_error_message" class="text-danger"></div>
-                          </div>
                           <div class="form-group col-md-12">
                             <strong>Salary <i class="text-danger">*</i></strong>
                             <input type="number" class="form-control" id="salary" name="salary" placeholder="Salary">
@@ -862,7 +851,6 @@ function check_permanent_address() {
             data:data,
             url:"../process/employees/updateEmployeeCompany.php",
             success:function(r){
-              alert(r);
             if(r==1){            
               alertify.success("Employee information successfuly updated!");
           }else{
@@ -895,7 +883,6 @@ function check_permanent_address() {
               $('#viewImage').empty();
               $("#image").val("");
               location.reload();
-              //addEmployeeData2(idEmployee);
               alertify.success("Profile image updated successfully!");
 
               
@@ -985,10 +972,10 @@ function addEmployeeData2(idEmployee){
           $('#employee_status').val(data['status']);
           $('#comment').val(data['comments']);
         
-  //Add deparments to department input.
- $('#addDepartment').select2();
- $('#addDepartment').select2({placeholder: '--Select Department--'});
- 
+            //Add deparments to department input.
+           $('#addDepartment').select2();
+           $('#addDepartment').select2({placeholder: '--Select Department--'});
+
 
         }
       });
