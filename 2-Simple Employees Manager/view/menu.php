@@ -109,6 +109,8 @@
     <script src="../vendor/datatable/dataTables.bootstrap4.min.js"></script>
     <!-- Select 2-->
     <script src="../vendor/select2/js/select2.js"></script>
+    <!--Plotly-->
+    <script src="../vendor/plotly-latest.min.js"></script>
   </div>
 </body>
 </html>
