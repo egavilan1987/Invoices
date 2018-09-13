@@ -1,20 +1,30 @@
 <?php
-	require "php/conexion.php";
-	$conexion=conexion();
-	$sql="SELECT fechaVenta,montoVenta FROM ventas ORDER BY fechaVenta";
-	$result=mysqli_query($conexion,$sql);
-	$valoresY=array();//montos
-	$valoresX=array();//fecha
+	require_once "../classes/connection.php";
+
+
+ 							$c=new Connect();
+                            $connection=$c->connection();
+
+                            $sql="SELECT id_department,
+                                         name_department 
+                                    FROM departments";
+                            $result=mysqli_query($connection,$sql);
+
+
+
+	$valoresY=array();//Employees per departments
+	$valoresX=array();//Departments
 
 	while ($ver=mysqli_fetch_row($result)){
-		$valoresY[]=$ver[1];
-		$valoresX[]=$ver[0];
+		$valoresY[]=$ver[0];
+		$valoresX[]=$ver[1];
 	}
 
 	$datosX=json_encode($valoresX);
 	$datosY=json_encode($valoresY);
 
 
+	echo "--------------------------------------";
 	echo $datosX;
 	echo "--------------------------------------";
 	echo $datosY;
@@ -41,7 +51,7 @@
 	datosY=crearCadenaBarras('<?php echo $datosY ?>');
 
 var data = [{
-  values: datosY,
+  values: ["1","200","0","0","5","6","7","8","0","100"],
   labels: datosX,
   type: 'pie'
 }];

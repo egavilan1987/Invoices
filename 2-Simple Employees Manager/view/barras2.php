@@ -16,10 +16,11 @@
 
 ?>
 
-<div id="graficaLineal"></div>
+<div id="graficaBarras"></div>
+
 
 <script type="text/javascript">
-	function crearCadenaLineal(json){
+	function crearCadenaBarras(json){
 		var parsed = JSON.parse(json);
 		var arr = [];
 		for (var x in parsed){
@@ -31,16 +32,17 @@
 
 <script type="text/javascript">
 
-	datosX=crearCadenaLineal('<?php echo $datosX ?>');
-	datosY=crearCadenaLineal('<?php echo $datosY ?>');
+	datosX=crearCadenaBarras('<?php echo $datosX ?>');
+	datosY=crearCadenaBarras('<?php echo $datosY ?>');
 
-	var trace1 = {
+
+	var data = [
+	{
 		x: datosX,
 		y: datosY,
-		type: 'scatter'
-	};
+		type: 'bar'
+	}
+	];
 
-	var data = [trace1];
-
-	Plotly.newPlot('graficaLineal', data);
+	Plotly.newPlot('graficaBarras', data);
 </script>

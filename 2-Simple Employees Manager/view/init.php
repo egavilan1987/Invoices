@@ -89,6 +89,6 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('#cargaLineal').load('lineal.php');
-    $('#cargaBarras').load('barras.php');
+    $('#cargaBarras').load('pie.php');
   });
 </script>
