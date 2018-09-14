@@ -18,7 +18,6 @@
 	while ($row=mysqli_fetch_row($result)){
 			$values2[]=$row[0];
 			$values3[]=$row[1];
-			echo $row2[1];
 		}
 
 	$values2=json_encode($values2);
