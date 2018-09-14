@@ -22,7 +22,7 @@
 		}
 
 	$values2=json_encode($values2);
-	$values2=json_encode($values2);
+	$values3=json_encode($values3);
 
 	echo "<br/>";
 	echo "DEPARTMENTS";
