@@ -4,8 +4,6 @@
 
 	$obj= new Departments;
 
-
-
 	$data=array(
 				$_POST['idDepartment'],
 			    $_POST['department']

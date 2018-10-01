@@ -1,5 +1,5 @@
 <?php
-	require_once "../classes/connection.php";
+	require_once "../../classes/connection.php";
 
  			$c=new Connect();
                         $connection=$c->connection();
@@ -12,31 +12,21 @@
                             d.name_department ASC";
                             $result=mysqli_query($connection,$sql); 
 
-	$valoresY=array();//Employees per departments
-	$valoresX=array();//Departments
 
 	while ($row=mysqli_fetch_row($result)){
-			$values2[]=$row[0];
-			$values3[]=$row[1];
+			$valuesX[]=$row[0];
+			$valuesY[]=$row[1];
 		}
 
-	$values2=json_encode($values2);
-	$values3=json_encode($values3);
+	$valuesX=json_encode($valuesX);
+	$valuesY=json_encode($valuesY);
 
-	echo "<br/>";
-	echo "DEPARTMENTS";
-	echo "<br/>";
-	echo $values2;
-	echo "<br/>";
-	echo "Number of employess per department.";
-	echo "<br/>";
-	echo $values3;
 ?>
 
-<div id="graficaBarras"></div>
+<div id="pieGraphic"></div>
 
 <script type="text/javascript">
-	function crearCadenaBarras(json){
+	function createPieArrays(json){
 		var parsed = JSON.parse(json);
 		var arr = [];
 		for (var x in parsed){
@@ -48,12 +38,12 @@
 
 <script type="text/javascript">
 	
-	values2=crearCadenaBarras('<?php echo $val2 ?>');
-	values3=crearCadenaBarras('<?php echo $val3 ?>');
+	valuesX=createPieArrays('<?php echo $valuesX ?>');
+	valuesY=createPieArrays('<?php echo $valuesY ?>');
 
 var data = [{
-  values: values3,
-  labels: values2,
+  values: valuesY,
+  labels: valuesX,
   type: 'pie'
 }];
 
@@ -62,5 +52,5 @@ var data = [{
   		width: 800
 	};
 
-	Plotly.newPlot('graficaBarras', data, layout);
+	Plotly.newPlot('pieGraphic', data, layout);
 </script>

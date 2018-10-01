@@ -13,9 +13,7 @@ require_once "../../classes/connection.php";
                 emp.nationality,
                 emp.marital_status,
                 emp.image,
-
                 dep.name_department,
-
                 emp.employee_status,
                 emp.created_date
 

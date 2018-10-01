@@ -144,6 +144,9 @@
                   <div class="col-sm-5 col-xs-6 tital " ><strong>Date of Hired:</strong></div><div class="col-sm-7 col-xs-6 "><div id="viewHiredDay"></div></div>
                        <div class="clearfix"></div>
                   <div class="bot-border"></div>
+                  <div class="col-sm-5 col-xs-6 tital " ><strong>Status:</strong></div><div class="col-sm-7 col-xs-6 "><div id="viewStatus"></div></div>
+                       <div class="clearfix"></div>
+                  <div class="bot-border"></div>
                   <div class="col-sm-5 col-xs-6 tital " ><strong>Comments:</strong></div><div class="col-sm-7 col-xs-6 "><div id="viewComments"></div></div>
                        <div class="clearfix"></div>
                   <div class="bot-border"></div>

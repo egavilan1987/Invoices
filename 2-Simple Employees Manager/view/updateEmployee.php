@@ -251,19 +251,14 @@
                           <p class="text-danger"><i>* Required</i></p>
                         <div class="row">
                           <input type="text" hidden="" id="idEmployeeCompany" name="idEmployeeCompany">
-
-
-
+                          <input type="text" hidden="" id="idDepartment" name="idDepartment">
                         <div class="form-group col-md-12">
                           <strong>Department </strong><br> 
                           <input type="text" class="form-control" id="department" name="department" placeholder="Department" readonly>
                           
 
                           <select id="addDepartment" name="addDepartment"  style="width: 100%" class="form-control col-md-12 selectpicker" >
-                            <option value="" hidden="">Select State</option>
-
-                            
-                       
+                            <option value="" hidden="">Select State</option>              
                             <?php                            
                             $c=new Connect();
                             $connection=$c->connection();
@@ -294,7 +289,7 @@
                             <select id="employee_status" name="employee_status" class="form-control">
                               <option value="" hidden>Status</option>
                               <option>Active</option>
-                              <option>Inative</option>
+                              <option>Inactive</option>
                             </select>
                             <div id="role_error_message" class="text-danger"></div>
                           </div>
@@ -965,6 +960,7 @@ function addEmployeeData2(idEmployee){
           $('#contactEmail').val(data['contactEmail']);
           $('#relation').val(data['contactRelation']);
 
+          $('#idDepartment').val(data['id_department']);
           $('#addDepartment2').text(data['department']);
           $('#department').val(data['department']); 
           $('#salary').val(data['salary']);
@@ -1004,9 +1000,6 @@ function phoneFormatter() {
 };
 
 $(phoneFormatter);
-
- 
-
 
     });
 

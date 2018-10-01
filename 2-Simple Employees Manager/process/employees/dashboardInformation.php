@@ -4,6 +4,7 @@
 
 	$obj= new Employees;
 	
-	echo json_encode($obj->getEmployeesData($_POST['idEmployee']));
+	echo json_encode($obj->getDashboardData());
 	
  ?>
+

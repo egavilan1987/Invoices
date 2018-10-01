@@ -15,6 +15,7 @@
 							marital_status,
 							image,
 							id_department,
+							employee_status,
 							created_date)
 						VALUES (
 							'$data[0]',
@@ -27,83 +28,12 @@
 							'$data[7]',
 							'../../files/profile_images/default-avatar.jpg',
 							'1',
+							'Inactive',
 							 NOW())";
 
 			return mysqli_query($connection,$sql);
 		}
-//Rember to delete the function below
-		/*
-		public function getEmployeesData($idEmployee){
-			
-			$c=new Connect();
-			$connection=$c->connection();
-			
-			$sql="SELECT id_employee,
-                fullname,
-                email,
-                local_address,
-                date_birth,
-                birth_place,
-                gender,
-                nationality,
-                marital_status,
-                image,
-                permanent_address,
-                telephone,
-                cellphone,
-                contact_fullname,
-                contact_address,        
-                contact_telephone,
-                contact_email,
-                contact_relation,
-                department,
-                salary,
-                employee_status,
-                comments,
-                hired_date,
-                resume_path,
-                created_date,
-                updated_date
-			      FROM employees WHERE id_employee='$idEmployee'";
 
-			$result=mysqli_query($connection,$sql);
-			
-			$row=mysqli_fetch_row($result);
-
-			$showImage=explode("/", $row[9]) ; 
-            $imgPath=$showImage[1]."/".$showImage[2]."/".$showImage[3]."/".$showImage[4];
-			
-			$employeeData=array(
-						'id_employee' => $row[0],
-						'fullName' => $row[1],
-						'email' => $row[2],
-						'localAddess' => $row[3],
-						'dateBirth' => $row[4],
-						'birthPlace' => $row[5],
-						'gender' => $row[6],
-						'nationality' => $row[7],
-						'maritalStatus' => $row[8],
-						'image' => $imgPath,
-						'permanentAddress' => $row[10],
-						'telephone' => $row[11],
-						'cellphone' => $row[12],
-						'contactFullname' => $row[13],
-						'contactAddress' => $row[14],
-						'contactTelephone' => $row[15],
-						'contactEmail' => $row[16],
-						'contactRelation' => $row[17],
-						'department' => $row[18],
-						'salary' => $row[19],
-						'status' => $row[20],
-						'comments' => $row[21],
-						'hiredDay' => $row[22],
-						'resumePath' => $row[23],
-						'created' => $row[24],
-						'updated' => $row[25]
-						);
-			return $employeeData;
-		}
-*/
 		public function getEmployeesData($idEmployee){
 			
 			$c=new Connect();
@@ -134,7 +64,8 @@
                 emp.hired_date,
                 emp.resume_path,
                 emp.created_date,
-                emp.updated_date
+                emp.updated_date,
+                dep.id_department
                 FROM employees AS emp
                 INNER JOIN departments AS dep
                 ON emp.id_department=dep.id_department
@@ -173,13 +104,43 @@
 						'hiredDay' => $row[22],
 						'resumePath' => $row[23],
 						'created' => $row[24],
-						'updated' => $row[25]
+						'updated' => $row[25],
+						'id_department' => $row[26]
 						);
 			return $employeeData;
 	
 }
 
+		public function getDashboardData(){
+			
+			$c=new Connect();
+			$connection=$c->connection();
+		
+			$sql="SELECT count(fullname) FROM employees";
+			$sql2="SELECT count(employee_status) FROM employees WHERE employee_status='active'";
+			$sql3="SELECT count(employee_status) FROM employees WHERE employee_status='inactive'";
+			$sql4="SELECT count(name_department) FROM departments";
 
+
+			$result=mysqli_query($connection,$sql);
+			$result2=mysqli_query($connection,$sql2);
+			$result3=mysqli_query($connection,$sql3);
+			$result4=mysqli_query($connection,$sql4);
+			
+		    $row=mysqli_fetch_row($result);
+		    $row2=mysqli_fetch_row($result2);
+		    $row3=mysqli_fetch_row($result3);
+		    $row4=mysqli_fetch_row($result4);
+			
+			$employeeData=array(
+						'totalEmployees' => $row[0],
+						'activeEmployees' => $row2[0],
+						'inactiveEmployees' => $row3[0],
+						'totalDepartments' => $row4[0],
+						);
+			return $employeeData;
+	
+}
 		public function updateEmployee($data){
 			
 			$c=new Connect();
@@ -238,12 +199,12 @@
 			$connection=$c->connection();
 
 			
-			$sql="UPDATE employees SET department ='$data[1]',
-						id_department ='$data[2]',
-						salary ='$data[3]',
-						hired_date ='$data[4]',
-						employee_status='$data[5]',
-						comments='$data[6]',	
+			$sql="UPDATE employees SET 
+						id_department ='$data[1]',
+						salary ='$data[2]',
+						hired_date ='$data[3]',
+						employee_status='$data[4]',
+						comments='$data[5]',	
 						updated_date=NOW()
 						WHERE id_employee='$data[0]'";
 

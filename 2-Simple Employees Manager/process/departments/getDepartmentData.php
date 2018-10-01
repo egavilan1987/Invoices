@@ -4,6 +4,5 @@
 
 	$obj= new Departments;
 
-	
 	echo json_encode($obj->getDepartmentData($_POST['idDepartment']));
  ?>
