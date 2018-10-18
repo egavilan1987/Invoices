@@ -133,6 +133,7 @@ function addInvoiceData(idInvoice){
         url:"../process/invoice/getInvoiceData.php",
         success:function(r){
           data=jQuery.parseJSON(r); 
+          alert(r);
           $('#idInvoice').val(data['id_invoice']);
           $('#idPrintInvoice').val(data['id_invoice']);
           $('#viewInvoiceId').text(data['id_invoice']);
